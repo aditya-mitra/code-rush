@@ -9,7 +9,7 @@
 - [Saswata Mujherjee]() (*Mentor*)
 - [Ananya Singh]()
 - [Kaushik Mandal]()
-- [Yashvi Mahapatra]()
+- [Yashvi Mahapatra](https://github.com/yashvi2001)
 - [Aditya Mitra](https://github.com/aditya-mitra)
 
 ---
