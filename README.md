@@ -8,7 +8,7 @@
 
 - [Saswata Mujherjee]() (*Mentor*)
 - [Ananya Singh]()
-- [Kaushik Mandal]()
+- [Kaushik Mandal](https://github.com/Kaushik-FSD)
 - [Yashvi Mahapatra](https://github.com/yashvi2001)
 - [Aditya Mitra](https://github.com/aditya-mitra)
 
