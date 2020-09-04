@@ -1,0 +1,20 @@
+{
+  "name": "code-rush-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@wellyshen/use-web-animations": "^0.5.2",
+    "next": "9.5.3",
+    "next-images": "^1.4.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-lazy-load-image-component": "^1.5.0",
+    "typewriter-effect": "^2.13.1"
+  },
+  "devDependencies": {}
+}
