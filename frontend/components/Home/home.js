@@ -1,9 +1,10 @@
 import Typewriter from "typewriter-effect";
 import useWebAnimations from "@wellyshen/use-web-animations";
+import Button from '@material-ui/core/Button'
 
 import classes from "./home.module.css";
 
-const Front = () => {
+const Landing = () => {
     const { ref, getAnimation } = useWebAnimations({
         keyframes: [
             { transform: "translateX(0%)" },
@@ -17,7 +18,6 @@ const Front = () => {
         },
         autoPlay: false
     });
-
     return (
         <div className={classes.bg}>
             <div className={classes.textArea}>
@@ -39,7 +39,7 @@ const Front = () => {
                     </div>
                 </div>
                 <div className={classes.action}>
-                    <div className={classes.btn}>Let's Start</div>
+                        <Button variant="contained" color='primary' style={{ borderRadius: 50 }} className={classes.btn}>Let's Start</Button>
                 </div>
             </div>
             <div className={classes.video}>
@@ -56,4 +56,4 @@ const Front = () => {
     );
 };
 
-export default Front;
+export default Landing;

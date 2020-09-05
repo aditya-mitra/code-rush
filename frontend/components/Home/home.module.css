@@ -1,8 +1,8 @@
 .textArea {
     width: 90%;
     margin: 0 auto;
-    line-height: 1em;
     padding-top: 10%;
+    line-height: 1.2;
 }
 
 .textArea p {
@@ -23,7 +23,6 @@
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 40px;
-    line-height: 1.2;
 }
 
 .action {
@@ -36,15 +35,8 @@
     display: block;
     font-size: 16px;
     padding: 20px 30px;
-    background-color: #191c3c;
-    color: aliceblue;
     border-radius: 30px;
     transition: ease 300ms;
-}
-
-.btn:hover {
-    cursor: pointer;
-    background-color: #6667f1;
 }
 
 .videoContent {
