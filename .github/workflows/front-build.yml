@@ -18,11 +18,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - working-directory: ./frontend
     - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: ./frontend
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build
-    - run: echo "build is passing"
+    - working-directory: ./frontend
+      run: |
+        npm ci
+        npm run build
+        echo "build is passing"
