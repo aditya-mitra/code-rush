@@ -1,8 +1,8 @@
 name: Frontend Build
 
 on:
-  pull_request:
-    branches: [ master ]
+  push:
+    branches: [ master]
     paths:
     - 'frontend/**'
   
@@ -19,11 +19,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
-      working-directory: ./frontend
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - working-directory: ./frontend
+    - name: 'Do next build'
+      working-directory: ./frontend
       run: |
         npm ci
         npm run build
