@@ -1,1 +1,5 @@
-mongodb+srv://Admin:dsckiit2020@cluster0.vwgyz.mongodb.net/question?retryWrites=true&w=majority
+//DATABASE LINK:
+
+mongodb+srv://Ananya:goodbadpass1@cluster0.1rmcw.mongodb.net/questions-API?retryWrites=true&w=majority
+
+password of mongo Atlas: goodbadpass1
