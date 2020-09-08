@@ -1,3 +1,4 @@
+import PageLink from 'next/link'
 import Typewriter from "typewriter-effect";
 import useWebAnimations from "@wellyshen/use-web-animations";
 import Button from '@material-ui/core/Button'
@@ -39,7 +40,9 @@ const Landing = () => {
                     </div>
                 </div>
                 <div className={classes.action}>
+                    <PageLink href='/dashboard'>
                         <Button variant="contained" color='primary' style={{ borderRadius: 50 }} className={classes.btn}>Let's Start</Button>
+                    </PageLink>
                 </div>
             </div>
             <div className={classes.video}>

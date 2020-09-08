@@ -1,12 +1,11 @@
-import React from "react";
-import CCard from "./Card";
 import { Grid } from "@material-ui/core";
+import CCard from "./card";
 import Constants from "./constants";
 
 const Content = () => {
   const rCard = cObj => {
     return (
-      <Grid item xs={12} sm={4}>
+      <Grid item xs={12} sm={4} key={cObj}>
         <CCard {...cObj} />
       </Grid>
     );

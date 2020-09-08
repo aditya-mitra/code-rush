@@ -1,13 +1,4 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import ShareIcon from "@material-ui/icons/Share";
-import { Avatar, IconButton, CardMedia } from "@material-ui/core";
+import { CardMedia, Card, CardActions, CardContent, Typography, Button } from "@material-ui/core";
 
 const CCard = props => {
   const {  title, subtitle, description, imageUrl } = props;
