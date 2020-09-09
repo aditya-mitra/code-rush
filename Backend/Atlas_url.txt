@@ -1,1 +1,0 @@
-mongodb+srv://Admin:dsckiit2020@cluster0.vwgyz.mongodb.net/question?retryWrites=true&w=majority
