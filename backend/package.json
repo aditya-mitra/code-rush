@@ -1,10 +1,11 @@
 {
   "name": "api-topics",
-  "version": "1.0.0",
-  "description": "api for topics page",
+  "version": "1.0.1",
+  "description": "backend for codeplatform2",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +13,9 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.2",
+    "mongoose": "^5.10.2"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.4"
   }
 }
