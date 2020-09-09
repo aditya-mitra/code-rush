@@ -1,0 +1,56 @@
+//GET PERTICULAR TOPIC ROUTE
+//this route will have questions of the perticular topic (not implemented in V1.0)
+// router.get("/:questionId", function (req, res) {
+//   db.Question.findById(req.params.questionId)
+//     .populate("answers")
+//     .exec(function (err, foundQuestion) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.json(foundQuestion);
+//       }
+//     });
+// });
+
+//UPDATE ROUTE
+//update is used to mark completed when all the questions are completed
+// router.put("/:questionId", function (req, res) {
+//   db.Question.findByIdAndUpdate({ _id: req.params.questionId }, req.body, {
+//     new: true,
+//   })
+//     .then(function (updatedQuestion) {
+//       res.json(updatedQuestion);
+//     })
+//     .catch(function (err) {
+//       console.log(err);
+//     });
+// });
+
+// //DELETE ROUTE
+// //to delete a topic if needed in future
+// router.delete("/:questionId", function (req, res) {
+//   db.Question.remove({ _id: req.params.questionId })
+//     .then(function () {
+//       res.json({ message: "delete successful" });
+//     })
+//     .catch(function (err) {
+//       console.log(err);
+//     });
+// });
+
+// router.get("/:questionId", function (req, res) {
+//   db.Question.findById(req.params.questionId, function (err, question) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       // res.json(answer);
+//       db.Answer.find()
+//         .then(function (answer) {
+//           res.json(answer);
+//         })
+//         .catch(function () {
+//           console.log(err);
+//         });
+//     }
+//   });
+// });
