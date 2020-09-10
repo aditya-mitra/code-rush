@@ -1,0 +1,7 @@
+.fillSpace {
+    flex: 1 1 auto;
+}
+
+.MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters{
+    width:9px;
+}
