@@ -7,7 +7,7 @@ const availableThemes = [
     "monokai","github","tomorrow","kuroir","twilight","xcode", "textmate","solarized_dark", "solarized_light", "terminal"
 ];
 
-const availableLangs = ["java", "javascript", "c/c++", "kotlin", "python"];
+const availableLangs = ["java", "javascript", "c", "cpp", "ruby", "python"];
 
 
 function IdeAppBar(props) {
@@ -29,9 +29,6 @@ function IdeAppBar(props) {
     const [langName, setLangName] = useState('java');
 
     const chooseLang = l => {
-        if (l === "c/c++")
-            props.handleModeChange('c_cpp');
-        else
             props.handleModeChange(l);
         setLangName(l);
         setLangAnchor(null);

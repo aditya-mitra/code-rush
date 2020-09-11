@@ -8,7 +8,7 @@ const availableThemes = [
 ];
 availableThemes.forEach(t => require(`ace-builds/src-noconflict/theme-${t}`));
 
-const availableLangs = ["java", "javascript", "c_cpp", "kotlin", "python"];
+const availableLangs = ["java", "javascript", "c_cpp", "ruby", "python"];
 availableLangs.forEach(l => {
     require(`ace-builds/src-noconflict/mode-${l}`);
     require(`ace-builds/src-noconflict/snippets/${l}`);
@@ -18,12 +18,19 @@ availableLangs.forEach(l => {
 function Ide(props) {
     
     let { height, width } = resizeWindow();
+
+    // ace has single mode for c and cpp called c_cpp    
+    let aceMode;
+    if(props.mode === 'c' || props.mode === 'cpp')
+        aceMode='c_cpp';
+    else
+        aceMode=props.mode;
     return (
         // change the height according to the viewport/window height
         <AceEditor
             name='ace-editor-code-rush'
             height={`${0.80 * height}px`} width={`${0.974 * width}px`}
-            mode={props.mode} theme={props.theme}
+            mode={aceMode} theme={props.theme}
             focus={true} fontSize={20}
             onChange={props.handleCode}
             editorProps={{ $blockScrolling: true }}
@@ -32,6 +39,7 @@ function Ide(props) {
                 enableLiveAutocompletion: true,
                 enableSnippets: true
             }}
+            style={{marginLeft:'-1.5rem'}}
         />
     );
 }

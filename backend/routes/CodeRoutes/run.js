@@ -8,7 +8,7 @@ const langs={
     'c':11,
     'cpp':1,
     'java':10,
-    'nodejs':56,
+    'javascript':56,
     'python':116,
     'ruby':17
 }
@@ -28,7 +28,11 @@ router.post('/', async function(req,res, next){
     })
     .then(response=>response.data)
     .then(data=>data.id)
-    .catch(err=>next(err));
+    .catch(err=>{
+        console.info(err, 'was error with sphere')
+        next(err)
+
+    });
 
     let clientInfo = null; 
     while(true){
@@ -52,8 +56,7 @@ router.post('/', async function(req,res, next){
         }
         break;
     }
-
-    res.send(clientInfo);
+    res.json(clientInfo);
     
 })
 
