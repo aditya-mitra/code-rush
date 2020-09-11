@@ -8,7 +8,7 @@ const langs={
     'c':11,
     'cpp':1,
     'java':10,
-    'nodejs':56,
+    'javascript':56,
     'python':116,
     'ruby':17
 }
@@ -52,8 +52,7 @@ router.post('/', async function(req,res, next){
         }
         break;
     }
-
-    res.send(clientInfo);
+    res.json(clientInfo);
     
 })
 
