@@ -28,7 +28,11 @@ router.post('/', async function(req,res, next){
     })
     .then(response=>response.data)
     .then(data=>data.id)
-    .catch(err=>next(err));
+    .catch(err=>{
+        console.info(err, 'was error with sphere')
+        next(err)
+
+    });
 
     let clientInfo = null; 
     while(true){

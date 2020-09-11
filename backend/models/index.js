@@ -10,3 +10,4 @@ mongoose.Promise = Promise;
 
 module.exports.Answer = require("./Answer");
 module.exports.Question = require("./Question");
+module.exports.User = require("./User");

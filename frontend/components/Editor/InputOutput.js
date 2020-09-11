@@ -22,9 +22,9 @@ export default function InputOuput(props) {
   const [output, setOutput] = useState(null);
 
   const handleRunCode= async ()=>{
-    console.log('while running',props.code,props.mode,runInput,'have these values');
 
     setLoading(true);
+    console.info('submitting', props.mode, props.code, runInput);
     const data = await axios.post('http://localhost:9000/api/code/run',
     {
       source:props.code,
@@ -34,6 +34,7 @@ export default function InputOuput(props) {
       .then(response=>response.data)
       .catch(error=>console.log(error));
 
+      console.log(data)
       setOutput(data);    
       setLoading(false);
 
@@ -50,11 +51,11 @@ export default function InputOuput(props) {
       SUBMIT
       </Button>
       <hr/>
-      <TextField label='Input for Code' fullWidth variant='outlined' multiline rows={5} onChange={e=>setRunInput(e.target.value)} value={runInput}/>
+      <TextField label='Input for Code' variant='outlined' multiline rows={5} onChange={e=>setRunInput(e.target.value)} value={runInput} style={{width:'75rem'}}/>
       <br/>
       <div style={{marginBottom:'10rem'}}>
         <h3>Showing the Ouput here</h3>
-        <p>{loading?<span>Loading the Output</span>:output}</p>
+        <p style={{'whiteSpace':'pre-line'}}>{loading?"Loading the Output":output}</p>
       </div>
     </div>
   );

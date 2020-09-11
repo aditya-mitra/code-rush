@@ -14,7 +14,7 @@ export default function Editor(){
     const [theme, setTheme] = useState('monokai');
     const handleThemeChange = (theme) => setTheme(theme);
 
-    const [mode, setMode] = useState('java');
+    const [mode, setMode] = useState('cpp');
     const handleModeChange = mode => setMode(mode);
 
     const [code,setCode] = useState('');
