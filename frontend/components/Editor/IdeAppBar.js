@@ -21,7 +21,7 @@ function IdeAppBar(props) {
     }
 
     const themeMenuItems = availableThemes.map(t => {
-        return (<MenuItem onClick={() => chooseTheme(t)}>{t}</MenuItem>);
+        return (<MenuItem key={t} onClick={() => chooseTheme(t)}>{t}</MenuItem>);
     });
 
 
@@ -38,7 +38,7 @@ function IdeAppBar(props) {
     }
 
     const langMenuItems = availableLangs.map(l => {
-        return (<MenuItem onClick={() => chooseLang(l)}>{l}</MenuItem>);
+        return (<MenuItem key={l} onClick={() => chooseLang(l)}>{l}</MenuItem>);
     });
 
     return (
@@ -48,7 +48,7 @@ function IdeAppBar(props) {
                     Code here
                 </Typography>
                 <span className={styles.fillSpace} />
-                <Button variant='primary' aria-controls="theme-menu" aria-haspopup="true" onClick={e => { setThemeAnchor(e.currentTarget); }}>
+                <Button aria-controls="theme-menu" aria-haspopup="true" onClick={e => { setThemeAnchor(e.currentTarget); }}>
                     {themeName}
                 </Button>
                 <Menu
@@ -60,7 +60,7 @@ function IdeAppBar(props) {
                 >
                     {themeMenuItems}
                 </Menu>
-                <Button variant='secondary' aria-controls="language-menu" aria-haspopup="true" onClick={e=>setLangAnchor(e.currentTarget) }>
+                <Button aria-controls="language-menu" aria-haspopup="true" onClick={e=>setLangAnchor(e.currentTarget) }>
                     {langName}
                 </Button>
                 <Menu

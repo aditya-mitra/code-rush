@@ -1,8 +1,9 @@
 import PageLink from 'next/link'
+import {signIn, signOut, useSession } from 'next-auth/client'
 
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core"
-
+import { AppBar, Toolbar, Typography, Button, Avatar } from "@material-ui/core"
+import {Person as AvatarFallback} from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
     const classes = useStyles();
-
+    const [session, loading] = useSession();
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -29,12 +30,14 @@ export default function ButtonAppBar() {
                             CODERUSH
                         </Typography>
                     </PageLink>
-                    <PageLink href='/auth/login'>
-                        <Button color="inherit">Login</Button>
-                    </PageLink>
-                    <PageLink href='/auth/signup'>
-                        <Button color="inherit">Signup</Button>
-                    </PageLink>
+                    {(session&&!loading)?
+                    <>
+                        <Avatar src={session.user.image || AvatarFallback} style={{marginRight:'0.3rem'}}/>
+                        <Typography style={{marginRight:'1rem'}}>{session.user.email}</Typography>
+                        <Button onClick={signOut}>SignOut</Button>
+                    </>
+                    :
+                    <Button onClick={signIn}>SignIn</Button>}
                 </Toolbar>
             </AppBar>
         </div>

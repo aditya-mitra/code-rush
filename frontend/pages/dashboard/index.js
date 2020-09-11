@@ -1,4 +1,5 @@
-import Dashboard from "../../components/dashboard/dash";
+import Dashboard from "../../components/Dashboard";
+import Layout from '../../components/layout';
 
 function DashPage(){
     return(
@@ -8,4 +9,4 @@ function DashPage(){
     );
 }
 
-export default DashPage;
+export default Layout(DashPage);
