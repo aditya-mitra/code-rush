@@ -1,6 +1,6 @@
 import {useState} from "react";
 import axios from 'axios';
-import {Button, TextField} from "@material-ui/core";
+import {Button, TextField, Snackbar} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -20,6 +20,7 @@ export default function InputOuput(props) {
   const [runInput, setRunInput]=useState('');
   const [loading, setLoading] = useState(false);
   const [output, setOutput] = useState(null);
+  const [message, setMessage] = useState('');
 
   const handleRunCode= async ()=>{
 
@@ -34,8 +35,15 @@ export default function InputOuput(props) {
       .then(response=>response.data)
       .catch(error=>console.log(error));
 
+      if(typeof(data) === 'object'){
+        setLoading(false);
+        setMessage(data.message);
+        return;
+      }
+
       setOutput(data);    
       setLoading(false);
+      
 
   }
 
@@ -46,13 +54,18 @@ export default function InputOuput(props) {
     {
       source:props.code,
       compiler:props.mode,
-      input:runInput,
       useremail:"54iwy5vva@disbox.org",
       qid:1
     })
       .then(response=>response.data)
       .catch(error=>console.log(error));
 
+      if(typeof(data) === 'object'){
+        setLoading(false);
+        setMessage(data.message);
+        return;
+      }
+      
       setOutput(data);    
       setLoading(false);
   }
@@ -63,7 +76,7 @@ export default function InputOuput(props) {
         RUN CODE
       </Button>
       <Button variant="contained" color="primary" onClick={handleSubmitCode} disabled={loading}>
-      SUBMIT
+        SUBMIT
       </Button>
       <hr/>
       <TextField label='Input for Code' variant='outlined' multiline rows={5} onChange={e=>setRunInput(e.target.value)} value={runInput} style={{width:'75rem'}}/>
@@ -72,6 +85,17 @@ export default function InputOuput(props) {
         <h3>Showing the Ouput here</h3>
         <p style={{'whiteSpace':'pre-line'}}>{loading?"Loading the Output":output}</p>
       </div>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        autoHideDuration={4000}
+        message={message}
+        open={message}
+        onClose={()=>setMessage('')}
+        style={{'whiteSpace':'pre-line'}}
+      />
     </div>
   );
 }

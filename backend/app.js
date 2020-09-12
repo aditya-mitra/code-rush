@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.send("Goto to the following route -> '/api/question' ");
 });
 
-app.use("/api/question", QuestionRoute);
+app.use("/api/questions", QuestionRoute);
 app.use('/api/code', CodeRoutes);
 
 app.use(function(err,req,res,next){
