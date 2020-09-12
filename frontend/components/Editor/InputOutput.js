@@ -34,13 +34,28 @@ export default function InputOuput(props) {
       .then(response=>response.data)
       .catch(error=>console.log(error));
 
-      console.log(data)
       setOutput(data);    
       setLoading(false);
 
   }
 
-  const handleSubmitCode = ()=>{console.log('submitting')}
+  const handleSubmitCode = async ()=>{
+    setLoading(true);
+    console.info('submitting', props.mode, props.code, runInput);
+    const data = await axios.post('http://localhost:9000/api/code/submit',
+    {
+      source:props.code,
+      compiler:props.mode,
+      input:runInput,
+      useremail:"54iwy5vva@disbox.org",
+      qid:1
+    })
+      .then(response=>response.data)
+      .catch(error=>console.log(error));
+
+      setOutput(data);    
+      setLoading(false);
+  }
 
   return (
     <div className={classes.root}>
