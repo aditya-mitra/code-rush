@@ -92,7 +92,7 @@ export default function InputOuput(props) {
         }}
         autoHideDuration={4000}
         message={message}
-        open={message}
+        open={Boolean(message)}
         onClose={()=>setMessage('')}
         style={{'whiteSpace':'pre-line'}}
       />

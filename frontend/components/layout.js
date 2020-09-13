@@ -14,6 +14,7 @@ const siteName = "CodeRush 1.0";
 
 const Layout = WrappedComponent => {
     function Hoc(props) {
+        console.log("in layout hoc, the props are", props)
         return (
             <>
                 <Head>
@@ -33,7 +34,7 @@ const Layout = WrappedComponent => {
                 </Head>
                 <Navbar />
                 <main>
-                    <WrappedComponent />
+                    <WrappedComponent {...props}/>
                 </main>
             </>
         );

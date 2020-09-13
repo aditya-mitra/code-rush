@@ -1,21 +1,19 @@
 import { Container, Card, CardHeader } from "@material-ui/core";
-import { Skeleton } from "@material-ui/lab";
-import resizeWindow from '../resizeWindow';
+
 
 export default function Question(props){
-    let { height, width } = resizeWindow();
+    const question = props.question;
     return(
     <div>
         <Card>
             <CardHeader
-                title="Name of the Question"
+                title={question.Q_title}
             />
         </Card>
-
         <Container>
-            <Skeleton variant='rect' animation='pulse'
-                    height={`${0.5 * height}px`} />
-
+            <h3>{question.Q_description[0]}</h3>
+            <h4>{question.Q_description[1]}</h4>
+            <h4>{question.Q_description[2]}</h4>
         </Container>
     </div>)
 }

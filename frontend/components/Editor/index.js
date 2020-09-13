@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from 'next/dynamic'
 import {useSession} from 'next-auth/client';
 
@@ -14,8 +14,9 @@ export default function Editor(){
 
     const [session, loading] = useSession();
     const [user, setUser] = useState(null);
-    if(!loading && session)
-        setUser(session.user);
+    useEffect(()=>{
+        if(session) setUser(session.user)
+    },[loading])
 
     const [theme, setTheme] = useState('monokai');
     const handleThemeChange = (theme) => setTheme(theme);
