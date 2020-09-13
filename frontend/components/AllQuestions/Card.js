@@ -1,3 +1,4 @@
+import PageLink from 'next/link'
 import Button from "@material-ui/core/Button";
 
 function Card(props) {
@@ -10,9 +11,11 @@ function Card(props) {
         <p className="info">{props.sub}</p>
       </div>
       <div className="solve">
-        <Button variant="contained" color="primary">
-          Solve
-        </Button>
+        <PageLink href={"/questions/"+props.qid}>
+          <Button variant="contained" color="primary">
+            Solve
+          </Button>
+        </PageLink>
       </div>
     </div>
   );

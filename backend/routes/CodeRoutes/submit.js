@@ -22,19 +22,21 @@ router.post('/', async function(req,res, next){
     const useremail = req.body.useremail;
     const qid = req.body.qid;
     
-    // const {input} = req.body; // CHANGE THIS, [GET THE INPUT FROM THE QUESTION MODEL] no input in submission, get the input from the questioninput
+    const question = await db.Question.findOne({Q_id:qid})
+                            .catch(e=>next(e))
+    const input = question.Q_input || "";
 
     const submissionId = await sphere.post('/submissions',
     {
         source,
         compilerId,
-        input
+        input,
     })
     .then(response=>response.data)
     .then(data=>data.id)
     .catch(err=>next(err));
 
-    let answer = null; 
+    let output = null; 
     while(true){
         const sub = await sphere.get(`/submissions/${submissionId}`)
                                     .then(response=>response.data)
@@ -44,12 +46,12 @@ router.post('/', async function(req,res, next){
         const {streams} = sub.result;
         if(streams.cmpinfo){ // 'code' provided by the client has error
             const {uri} = streams.cmpinfo;
-            answer = await sphere.get(uri)
+            output = await sphere.get(uri)
                                 .then(response=>response.data)
                                 .catch(err=>next(err))
         }else{ // we have an output!
             const {uri} = streams.output;
-            answer = await sphere.get(uri)
+            output = await sphere.get(uri)
                                 .then(response=>response.data)
                                 .catch(err=>next(err))
 
@@ -57,14 +59,22 @@ router.post('/', async function(req,res, next){
         break;
     }
 
-    let isCorrect = true; // check this with the answers db
-    const question_id = await db.Question.findOne({Q_id:qid})
-                                        .catch(e=>next(e))
 
+    let isCorrect = false; // check this with the answers db
+
+
+    const answer = await db.Answer.findOne({A_id:qid})
+                                .catch(e=>next(e))           
+                                       
+    if(output.trim() == answer.A_output.trim()){
+        isCorrect = true;
+    }
+
+                                        
     if(!isCorrect){
         res.json({"message":"incorrect answer"})
     }else{
-        
+        const question_id = question._id;
         const givePoint = async () => {
             const user = await db.User.findOne({email:useremail})
                                 .catch(e=>next(e));
@@ -77,13 +87,24 @@ router.post('/', async function(req,res, next){
                 newSolved.save();
             }else{
                 // user has been solving questions. So, we just add push that one
+                const hasAlreadySolved = beenSolving.qid.find(e=>JSON.stringify(e)===JSON.stringify(question_id));
+
+                if(hasAlreadySolved)
+                    return res.json({"message":"Correct Answer!\nYou have already solved that"});
+
                 beenSolving.qid.push(question_id);
                 beenSolving.points += 10;
                 beenSolving.save();
             }
         }
 
-        givePoint();
+        await givePoint();
+        try{
+            res.json({"message":"Correct Answer!"})
+        }catch(e){
+            console.log("Had already solved")
+            return;
+        }
     }
     
 })

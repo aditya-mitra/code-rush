@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from 'next/dynamic'
+import {useSession} from 'next-auth/client';
 
 import IdeAppBar from './IdeAppBar';
 import InputOutput from './InputOutput';
@@ -9,7 +10,13 @@ import { Container } from "@material-ui/core";
 import styles from './index.module.css';
 
 
-export default function Editor(){
+export default function Editor(props){
+
+    const [session, loading] = useSession();
+    const [user, setUser] = useState(null);
+    useEffect(()=>{
+        if(session) setUser(session.user)
+    },[loading])
 
     const [theme, setTheme] = useState('monokai');
     const handleThemeChange = (theme) => setTheme(theme);
@@ -23,13 +30,17 @@ export default function Editor(){
         setCode(input);
     }
 
+    if(!user){
+        return <div>USER NOT LOGGED IN!</div>
+    }
+
     return (
         <div>
             <Container disableGutters className={styles.ideContainer}>
                 <IdeAppBar handleThemeChange={handleThemeChange} handleModeChange={handleModeChange} />
                 <Ide theme={theme} mode={mode} handleCode={handleCode}/>
             </Container>
-            <InputOutput code={code} mode={mode}/>
+            <InputOutput qid={props.qid} code={code} mode={mode} user={user}/>
         </div>
     )
 

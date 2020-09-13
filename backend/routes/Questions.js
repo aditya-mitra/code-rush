@@ -3,74 +3,68 @@ var router = express.Router();
 var db = require("../models");
 
 //GET ROUTE(TO GET ALL QUESTION api's)
-router.get("/", function (req, res) {
+router.get("/", function (req, res, next) {
   db.Question.find()
     .then(function (questions) {
-      res.json(questions);
+      let sanitizedQuestions = [];
+      for(const question of questions){
+        let sanitizedQuestion = JSON.stringify(question);
+        sanitizedQuestion = JSON.parse(sanitizedQuestion);
+        delete sanitizedQuestion['answer'];
+        delete sanitizedQuestion['Q_input'];
+        sanitizedQuestions.push(sanitizedQuestion);
+      }
+      res.json(sanitizedQuestions);
     })
     .catch(function (err) {
-      console.log(err);
+      next(err);
     });
 });
 
 //POST ROUTE(TO POST A QUESTION)
-router.post("/", function (req, res) {
+router.post("/", function (req, res, next) {
   db.Question.create(req.body)
     .then(function (newQuestion) {
       res.json(newQuestion);
     })
     .catch(function (err) {
-      console.log(err);
+      next(err);
     });
 });
 
-//GET PERTICULAR TOPIC ROUTE
-//this route will have questions of the perticular topic (not implemented in V1.0)
-// router.get("/:questionId", function (req, res) {
-//   db.Question.findById(req.params.questionId)
-//     .populate("answers")
-//     .exec(function (err, foundQuestion) {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.json(foundQuestion);
-//       }
-//     });
-// });
+router.get('/answers',function(req,res){
+  db.Answer.find()
+    .then(answers => res.json(answers))
+    .catch(err=>console.error(err))
+})
 
-router.get("/:questionId", function (req, res) {
+
+router.get("/:questionId", function (req, res, next) {
   db.Question.findOne({ Q_id: req.params.questionId })
     .populate("answers")
     .exec(function (err, foundQuestion) {
       if (err) {
-        console.log(err);
+        next(err);
       } else {
-        res.json(foundQuestion);
+        let sanitizedQuestion = JSON.stringify(foundQuestion);
+        sanitizedQuestion = JSON.parse(sanitizedQuestion);
+        delete sanitizedQuestion['answer'];
+        delete sanitizedQuestion['Q_input'];
+        res.json(sanitizedQuestion);
       }
     });
 });
 
-//ANSWERS
-
-// router.get("/answer", function (req, res) {
-//   db.Answer.find()
-//     .then(function (answer) {
-//       res.json(answer);
-//     })
-//     .catch(function (err) {
-//       console.log(err);
-//     });
-// });
 
 //TO POST A ANSWER
-router.post("/:questionId/answer", function (req, res) {
+router.post("/:questionId/answer", function (req, res, next) {
   db.Question.findById(req.params.questionId, function (err, question) {
     if (err) {
-      console.log(err);
+      next(err);
     } else {
-      db.Answer.create(req.body, function (err1, newAnswer) {
+      db.Answer.create(req.body, function (err1, newAnswer, next) {
         if (err1) {
-          console.log(err1);
+          next(err1);
         } else {
           res.json(newAnswer);
           question.answer.push(newAnswer._id);
@@ -80,5 +74,6 @@ router.post("/:questionId/answer", function (req, res) {
     }
   });
 });
+
 
 module.exports = router;
