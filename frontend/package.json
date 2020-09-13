@@ -1,11 +1,11 @@
 {
   "name": "code-rush-starter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",

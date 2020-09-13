@@ -8,16 +8,22 @@ on:
   
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Decrypt frontend.env
+      uses: actions/checkout@v2
+      run: ./.github/scripts/frontend_decrypt_secret.sh
+      env:
+        DECRYPTER_PASSPHRASE: ${{secrets.DECRYPTER_PASSPHRASE}}
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
