@@ -20,7 +20,7 @@ jobs:
     steps:
     - name: Decrypt frontend.env
       uses: actions/checkout@v2
-      run: ./.github/scripts/frontend_decrypt_secret.sh
+    - run: ./.github/scripts/frontend_decrypt_secret.sh
       env:
         DECRYPTER_PASSPHRASE: ${{secrets.DECRYPTER_PASSPHRASE}}
 
