@@ -26,7 +26,7 @@ export default function InputOuput(props) {
 
     setLoading(true);
     console.info('submitting', props.mode, props.code, runInput);
-    const data = await axios.post('http://localhost:9000/api/code/run',
+    const data = await axios.post(process.env.BACKEND_URL+"code/run",
     {
       source:props.code,
       compiler:props.mode,
@@ -49,13 +49,12 @@ export default function InputOuput(props) {
 
   const handleSubmitCode = async ()=>{
     setLoading(true);
-    console.info('submitting', props.mode, props.code, runInput);
-    const data = await axios.post('http://localhost:9000/api/code/submit',
+    const data = await axios.post(process.env.BACKEND_URL+"code/submit",
     {
       source:props.code,
       compiler:props.mode,
       useremail:props.user.email,
-      qid:1
+      qid:props.qid
     })
       .then(response=>response.data)
       .catch(error=>console.log(error));

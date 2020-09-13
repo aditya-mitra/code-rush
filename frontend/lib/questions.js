@@ -3,7 +3,7 @@ import axios from 'axios'
 let storedQuestions = null; // later uplift this to the store
 
 async function fetchAllQuestions(){
-    const data = await axios.get("http://localhost:9000/api/questions/")
+    const data = await axios.get(process.env.BACKEND_URL+"questions")
                             .then(response=>response.data)
                             .catch(e=>{
                                 console.log("Error while fetching questions",e)
@@ -28,7 +28,6 @@ export async function getAllQuestionPaths(){
             }
         }
     })
-    console.log("we have paths as", paths)
     return paths;
 
 }
@@ -40,17 +39,11 @@ export async function getAllQuestions(){
     else
         questions = await fetchAllQuestions();
 
-    questions = questions.map(question=>{
-        return {
-            question
-        }
-    })
-
     return questions;
 }
 
 export async function getQuestion(qid){
-    const question = await axios.get(`http://localhost:9000/api/questions/${qid}`)
+    const question = await axios.get(`${process.env.BACKEND_URL}questions/${qid}`)
         .then(response=>response.data)
         .catch(err=>{
             console.log("Error while getting that question", qid, err);

@@ -1,24 +1,10 @@
 import PageLink from 'next/link'
 import Typewriter from "typewriter-effect";
-import useWebAnimations from "@wellyshen/use-web-animations";
 import Button from '@material-ui/core/Button'
 
 import classes from "./home.module.css";
 
 const Landing = () => {
-    const { ref, getAnimation } = useWebAnimations({
-        keyframes: [
-            { transform: "translateX(0%)" },
-            { transform: "translateX(100%)" },
-            { transform: "translateX(0%)" }
-        ],
-        timing: {
-            duration: 1500,
-            easing: "ease-in-out",
-            iterations: Infinity
-        },
-        autoPlay: false
-    });
     return (
         <div className={classes.bg}>
             <div className={classes.textArea}>
@@ -40,7 +26,7 @@ const Landing = () => {
                     </div>
                 </div>
                 <div className={classes.action}>
-                    <PageLink href='/dashboard'>
+                    <PageLink href='/questions'>
                         <Button variant="contained" color='primary' style={{ borderRadius: 50 }} className={classes.btn}>Let's Start</Button>
                     </PageLink>
                 </div>

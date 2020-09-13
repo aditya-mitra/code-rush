@@ -1,9 +1,17 @@
 import Layout from '../../components/layout'
 import AllQuestions from '../../components/AllQuestions'
 
-function AllQuestionsPage(){
+import {getAllQuestions} from '../../lib/questions'
 
-    return <AllQuestions/>
+export async function getStaticProps(){
+    const questions = await getAllQuestions();
+    return {
+        props:{questions}
+    }
+}
+
+function AllQuestionsPage(props){
+    return <AllQuestions questions={props.questions}/>
 }
 
 export default Layout(AllQuestionsPage);

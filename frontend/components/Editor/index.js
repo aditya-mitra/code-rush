@@ -10,7 +10,7 @@ import { Container } from "@material-ui/core";
 import styles from './index.module.css';
 
 
-export default function Editor(){
+export default function Editor(props){
 
     const [session, loading] = useSession();
     const [user, setUser] = useState(null);
@@ -40,7 +40,7 @@ export default function Editor(){
                 <IdeAppBar handleThemeChange={handleThemeChange} handleModeChange={handleModeChange} />
                 <Ide theme={theme} mode={mode} handleCode={handleCode}/>
             </Container>
-            <InputOutput code={code} mode={mode} user={user}/>
+            <InputOutput qid={props.qid} code={code} mode={mode} user={user}/>
         </div>
     )
 

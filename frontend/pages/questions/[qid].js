@@ -20,7 +20,7 @@ export async function getStaticProps(ctx){
     const question = await getQuestion(qid);
     
     return {
-        props:{question}
+        props:{question,qid}
     }
 }
 
@@ -28,7 +28,7 @@ function Qid(props) {
     return (
         <div>
             <Question question={props.question}/>
-            <Editor/>
+            <Editor qid={props.qid}/>
         </div>
     );
 }
