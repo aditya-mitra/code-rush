@@ -1,16 +1,16 @@
 import PageLink from 'next/link'
 import Button from "@material-ui/core/Button";
-
+import classes from "./Card.module.css";
 function Card(props) {
   return (
-    <div className="card">
-      <div className="top">
-        <h2 className="name">{props.title}</h2>
+      <div className={classes.card}>
+      <div className={classes.top}>
+        <h2 className={classes.name}>{props.title}</h2>
       </div>
-      <div className="bottom">
-        <p className="info">{props.sub}</p>
+        <div className={classes.bottom}>
+        <p className={classes.info}>{props.sub}</p>
       </div>
-      <div className="solve">
+      <div className={classes.solve}>
         <PageLink href={"/questions/"+props.qid}>
           <Button variant="contained" color="primary">
             Solve
