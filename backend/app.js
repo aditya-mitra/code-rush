@@ -21,7 +21,7 @@ app.use("/api/code", CodeRoutes);
 app.use("/admin", AdminRoutes);
 
 app.use(function (err, req, res, next) {
-  console.error("Hit last route", err);
+  console.error("Hit last route -----> ", err);
   res.json({ message: err });
 });
 
