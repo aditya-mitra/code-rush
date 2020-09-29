@@ -1,7 +1,7 @@
 name: Frontend Build
 
 on:
-  push:
+  pull_request:
     branches: [ master]
     paths:
     - 'frontend/**'
@@ -20,9 +20,6 @@ jobs:
     steps:
     - name: Decrypt frontend.env
       uses: actions/checkout@v2
-    - run: ./.github/scripts/frontend_decrypt.sh
-      env:
-        DECRYPTER_PASSPHRASE: ${{secrets.DECRYPTER_PASSPHRASE}}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
