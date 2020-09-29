@@ -1,2 +1,9 @@
 .vs/
 .vscode/
+
+.next/
+node_modules/
+
+.env**
+
+.adminbro/

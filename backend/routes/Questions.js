@@ -7,11 +7,11 @@ router.get("/", function (req, res, next) {
   db.Question.find()
     .then(function (questions) {
       let sanitizedQuestions = [];
-      for(const question of questions){
+      for (const question of questions) {
         let sanitizedQuestion = JSON.stringify(question);
         sanitizedQuestion = JSON.parse(sanitizedQuestion);
-        delete sanitizedQuestion['answer'];
-        delete sanitizedQuestion['Q_input'];
+        delete sanitizedQuestion["answer"];
+        delete sanitizedQuestion["Q_input"];
         sanitizedQuestions.push(sanitizedQuestion);
       }
       res.json(sanitizedQuestions);
@@ -32,12 +32,11 @@ router.post("/", function (req, res, next) {
     });
 });
 
-router.get('/answers',function(req,res){
+router.get("/answers", function (req, res) {
   db.Answer.find()
-    .then(answers => res.json(answers))
-    .catch(err=>console.error(err))
-})
-
+    .then((answers) => res.json(answers))
+    .catch((err) => console.error(err));
+});
 
 router.get("/:questionId", function (req, res, next) {
   db.Question.findOne({ Q_id: req.params.questionId })
@@ -48,13 +47,12 @@ router.get("/:questionId", function (req, res, next) {
       } else {
         let sanitizedQuestion = JSON.stringify(foundQuestion);
         sanitizedQuestion = JSON.parse(sanitizedQuestion);
-        delete sanitizedQuestion['answer'];
-        delete sanitizedQuestion['Q_input'];
+        delete sanitizedQuestion["answer"];
+        delete sanitizedQuestion["Q_input"];
         res.json(sanitizedQuestion);
       }
     });
 });
-
 
 //TO POST A ANSWER
 router.post("/:questionId/answer", function (req, res, next) {
@@ -74,6 +72,5 @@ router.post("/:questionId/answer", function (req, res, next) {
     }
   });
 });
-
 
 module.exports = router;
