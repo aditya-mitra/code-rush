@@ -12,14 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - shell: bash
-        env:
-          DECRYPTER_PASSPHRASE: ${{secrets.DECRYPTER_PASSPHRASE}}
-        run: >
-          ./.github/scripts/backend_decrypt.sh
-      - run: |
-          cat backend/.env
-          ls backend/
       - uses: akhileshns/heroku-deploy@v3.5.6
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -27,7 +19,8 @@ jobs:
           heroku_email: "gamersinstinct6@gmail.com"
           branch: master
           appdir: backend
-          env_file: ".env"
+        env:
+          HD_CRYPTO_SECRET: ${{secrets.CRYPTO_SECRET}}
       - run: |
           ls -a
           echo "Deployed to code-rush-backend.herokuapp.com"
