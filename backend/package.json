@@ -1,12 +1,13 @@
 {
-  "name": "api-topics",
-  "version": "2.0.1",
+  "name": "code-rush-backend",
+  "version": "2.1.2",
   "description": "backend for codeplatform2",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "manual-format": "prettier --write ./**\""
+    "build": "node decrypter.js",
+    "encryptenv": "node encrypter.js"
   },
   "author": "",
   "license": "ISC",
