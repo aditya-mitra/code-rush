@@ -4,14 +4,6 @@ const router = Router();
 
 const adminPanel = require("./admin");
 
-//const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
-//    cookieName: process.env.ADMIN_COOKIE_NAME,
-//    cookiePassword: process.env.ADMIN_COOKIE_PASSWORD,
-//    authenticate: async (email, password) => {
-//        if (admin.email === email && admin.password === password) return admin;
-//        else return null;
-//    }
-//})
 
 router.use(
   sessions({
