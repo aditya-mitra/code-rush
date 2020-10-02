@@ -6,7 +6,8 @@ import { getAllQuestions } from '../../lib/questions';
 export async function getStaticProps(){
     const questions = await getAllQuestions();
     return {
-        props:{questions}
+        props: { questions },
+        revalidate: 60 * 60 // in seconds
     }
 }
 

@@ -3,46 +3,33 @@ import Providers from 'next-auth/providers'
 
 
 const options = {
-  providers: [
-    Providers.Email({
-      server: {
-        host: 'smtp.sendgrid.net',
-        port: '25',
-        auth: {
-          user: process.env.FRONT_EMAIL_USER,
-          pass: process.env.FRONT_EMAIL_PASSWORD
-        }
-      },
-      from: process.env.FRONT_EMAILER
-    }),
-    Providers.Google({
-      clientId: process.env.FRONT_GOOGLE_CLIENTID,
-      clientSecret: process.env.FRONT_GOOGLE_CLIENTSECRET
-    }),
-  ],
-  database: process.env.FRONT_DB_URL,
+    providers: [
+        Providers.Google({
+            clientId: process.env.FRONT_GOOGLE_CLIENT_ID,
+            clientSecret: process.env.FRONT_GOOGLE_CLIENT_SECRET
+        }),
+    ],
+    database: process.env.FRONT_DB_URL,
 
-  secret: process.env.FRONT_SESSION_SECRET,
+    secret: process.env.FRONT_SESSION_SECRET,
 
-  session: {
-    jwt: true,     
-  },
+    session: {
+        jwt: true,
+    },
 
-  jwt: {
-    
-    secret: process.env.FRONT_JWT_SECRET, 
-    
-  },
+    jwt: {
+        secret: process.env.FRONT_JWT_SECRET,
+    },
 
-  pages: {
-  },
+    pages: {
+    },
 
-  callbacks: { 
-  },
+    callbacks: {
+    },
 
-  events: { },
+    events: {},
 
-  debug: true,
+    debug: process.env.NODE_ENV === 'development',
 }
 
 export default (req, res) => NextAuth(req, res, options)
