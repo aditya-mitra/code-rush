@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT"
+    "build": "node decrypter.js && next build",
+    "start": "next start -p $PORT",
+     "encryptenv": "node encrypter.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -16,6 +17,7 @@
     "mongodb": "^3.6.2",
     "next": "9.5.3",
     "next-auth": "^3.1.0",
+    "nprogress": "^0.2.0",
     "react": "16.13.1",
     "react-ace": "^9.1.3",
     "react-dom": "16.13.1",
