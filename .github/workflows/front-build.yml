@@ -28,6 +28,6 @@ jobs:
     - name: 'Do next build'
       working-directory: ./frontend
       run: |
-        npm ci
+        npm install
         npm run build
         echo "build is passing"
