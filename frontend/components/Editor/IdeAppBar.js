@@ -39,6 +39,7 @@ function IdeAppBar(props) {
     });
 
     return (
+        <div className ={styles.size}>
         <AppBar position='static'>
             <Toolbar>
                 <Typography variant='h5'>
@@ -71,7 +72,8 @@ function IdeAppBar(props) {
                 </Menu>
             </Toolbar>
         </AppBar>
-    )
+        </div>
+    );
 }
 
 export default IdeAppBar;
