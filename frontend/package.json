@@ -1,12 +1,13 @@
 {
-  "name": "code-rush-starter",
-  "version": "0.2.0",
-  "private": true,
+  "name": "code-rush",
+  "version": "2.0.3",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "node decrypter.js && next build",
     "start": "next start -p $PORT",
-    "encryptenv": "node encrypter.js"
+    "encryptenv": "node encrypter.js",
+    "action-build": "next build"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
