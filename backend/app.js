@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var QuestionRoute = require("./routes/Questions");
 var CodeRoutes = require("./routes/CodeRoutes");
+var Leaderboard = require("./routes/leaderboard");
 var AdminRoutes = require("./routes/AdminRoutes");
 
 app.get("/", (req, res) => {
@@ -18,7 +19,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/questions", QuestionRoute);
 app.use("/api/code", CodeRoutes);
+app.use("/api/leaderboard", Leaderboard);
 app.use("/admin", AdminRoutes);
+
 
 app.use(function (err, req, res, next) {
   console.error("Hit last route -----> ", err);
