@@ -10,7 +10,7 @@ import styles from './layout.module.css';
 import Navbar from './navbar';
 
 
-const siteName = "CodeRush 1.0";
+const siteName = "CodeRush 2.0";
 
 const Layout = WrappedComponent => {
     function Hoc(props) {
@@ -19,12 +19,12 @@ const Layout = WrappedComponent => {
             <>
                 <Head>
                     <link rel='icon' href='/favicon.png' />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> 
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                     <meta name="og:title" content={siteName} />
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta
                         name="description"
-                        content="Learn how to build a personal website using Next.js"
+                        content="Code Rush The Place To Code!"
                     />
                     <meta
                         name="viewport"

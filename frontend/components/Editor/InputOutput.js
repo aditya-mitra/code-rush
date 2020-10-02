@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-  
+
     "& > *": {
       margin: theme.spacing(2),
 
@@ -41,9 +41,9 @@ export default function InputOuput(props) {
         return;
       }
 
-      setOutput(data);    
+      setOutput(data);
       setLoading(false);
-      
+
 
   }
 
@@ -64,14 +64,15 @@ export default function InputOuput(props) {
         setMessage(data.message);
         return;
       }
-      
-      setOutput(data);    
+
+      setOutput(data);
       setLoading(false);
   }
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary" onClick={handleRunCode} disabled={loading}>
+
+      <Button style={{marginLeft:'6.5rem'}} variant="contained" color="primary" onClick={handleRunCode} disabled={loading}>
         RUN CODE
       </Button>
       <Button variant="contained" color="primary" onClick={handleSubmitCode} disabled={loading}>

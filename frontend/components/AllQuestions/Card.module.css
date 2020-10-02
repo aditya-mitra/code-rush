@@ -3,17 +3,17 @@
   position: relative;
   padding: 25px 15px;
   background-color: #ffffff;
-  margin: 50px 0;
-  height: 190px;
+  margin: 40px 0;
+  height: 135px;
   box-shadow: 0 2px 5px #ccc;
   text-align: left;
-  max-width: 800px;
- min-width: 800px;
- margin-left: 210px;
+  max-width: 750px;
+ min-width: 750px;
+ margin-left: 250px;
 }
 .top {
   border-radius: 25px 25px 0 0;
-  height: 80px;
+  height: 73px;
   width: 100%;
   background-color: #3f51b5;
   position: absolute;
@@ -24,6 +24,7 @@
 .info {
   margin-top: 70px;
   color: black;
+  font-size:21px;
 }
 .name {
   font-size: 30px;
@@ -35,6 +36,6 @@
 
 }
 .solve{
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 16px;
+  margin-bottom: 50px;
 }

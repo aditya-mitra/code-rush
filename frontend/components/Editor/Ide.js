@@ -16,10 +16,10 @@ availableLangs.forEach(l => {
 
 
 function Ide(props) {
-    
+
     let { height, width } = resizeWindow();
 
-    // ace has single mode for c and cpp called c_cpp    
+    // ace has single mode for c and cpp called c_cpp
     let aceMode;
     if(props.mode === 'c' || props.mode === 'cpp')
         aceMode='c_cpp';
@@ -29,7 +29,7 @@ function Ide(props) {
         // change the height according to the viewport/window height
         <AceEditor
             name='ace-editor-code-rush'
-            height={`${0.80 * height}px`} width={`${0.974 * width}px`}
+            height={`${0.80 * height}px`} width={`${0.820 * width}px`}
             mode={aceMode} theme={props.theme}
             focus={true} fontSize={20}
             onChange={props.handleCode}
@@ -39,7 +39,7 @@ function Ide(props) {
                 enableLiveAutocompletion: true,
                 enableSnippets: true
             }}
-            style={{marginLeft:'-1.5rem'}}
+            style={{marginLeft:'6.5rem'}}
         />
     );
 }
