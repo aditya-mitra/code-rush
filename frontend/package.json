@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT"
+    "build": "node decrypter.js && next build",
+    "start": "next start -p $PORT",
+     "encryptenv": "node encrypter.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
