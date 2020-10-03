@@ -13,6 +13,7 @@ mongoose.connect(
 mongoose.Promise = Promise;
 
 module.exports.Answer = require("./Answer");
+module.exports.Comments = require("./Comments");
 module.exports.Question = require("./Question");
 module.exports.User = require("./User");
 module.exports.Solved = require("./Solved");
