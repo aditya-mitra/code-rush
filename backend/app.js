@@ -15,10 +15,10 @@ var AdminRoutes = require("./routes/AdminRoutes");
 var CommentRoute = require("./routes/Comment");
 
 app.get("/", (req, res) => {
-  res.send("Goto to the following route -> '/api/question' ");
+    res.send("Goto to the following route -> '/api/question' ");
 });
 
-app.use("/api", CommentRoute);
+app.use("/api/comment", CommentRoute);
 
 app.use("/api/questions", QuestionRoute);
 
@@ -27,13 +27,13 @@ app.use("/api/leaderboard", Leaderboard);
 app.use("/admin", AdminRoutes);
 
 
-app.use(function (err, req, res, next) {
-  console.error("Hit last route -----> ", err);
-  res.json({ message: err });
+app.use(function(err, req, res, next) {
+    console.error("Hit last route -----> ", err);
+    res.json({ message: err });
 });
 
 //SERVER PORT
 var port = process.env.PORT || 9000;
 app.listen(port, () => {
-  console.log("Server started");
+    console.log("Server started");
 });
