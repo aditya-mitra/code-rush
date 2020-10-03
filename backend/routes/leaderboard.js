@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const _ = require("lodash");
 var db = require("../models");
 const router = Router();
 
