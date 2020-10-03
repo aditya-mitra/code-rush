@@ -44,7 +44,10 @@ export async function getAllQuestions(){
 
 export async function getQuestion(qid){
     const question = await axios.get(`${process.env.BACKEND_URL}questions/${qid}`)
-        .then(response=>response.data)
+        .then(response => {
+            console.log(response.data);
+            return response.data
+        })
         .catch(err=>{
             console.log("Error while getting that question", qid, err);
         })

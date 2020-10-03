@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var c
 
 var QuestionSchema = new mongoose.Schema({
   Q_id: Number,
@@ -18,7 +19,7 @@ var QuestionSchema = new mongoose.Schema({
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Comments",
+      ref: "Comment",
     },
   ],
 });
