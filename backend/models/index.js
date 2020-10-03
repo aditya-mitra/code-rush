@@ -16,3 +16,4 @@ module.exports.Answer = require("./Answer");
 module.exports.Question = require("./Question");
 module.exports.User = require("./User");
 module.exports.Solved = require("./Solved");
+module.exports.Comments = require("./Comments");
