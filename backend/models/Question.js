@@ -15,6 +15,12 @@ var QuestionSchema = new mongoose.Schema({
       ref: "Answer",
     },
   ],
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comments",
+    },
+  ],
 });
 
 var Question = mongoose.model("Question", QuestionSchema);

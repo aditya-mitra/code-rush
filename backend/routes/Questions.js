@@ -41,6 +41,7 @@ router.get("/answers", function (req, res) {
 router.get("/:questionId", function (req, res, next) {
   db.Question.findOne({ Q_id: req.params.questionId })
     .populate("answers")
+    .populate("comments")
     .exec(function (err, foundQuestion) {
       if (err) {
         next(err);
