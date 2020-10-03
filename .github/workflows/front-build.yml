@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [ 12.x, 14.x]
 
     steps:
     - name: Decrypt frontend.env
@@ -28,6 +28,6 @@ jobs:
     - name: 'Do next build'
       working-directory: ./frontend
       run: |
-        npm ci
+        npm install
         npm run build
         echo "build is passing"
