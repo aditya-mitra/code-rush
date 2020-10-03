@@ -11,12 +11,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var QuestionRoute = require("./routes/Questions");
 var CodeRoutes = require("./routes/CodeRoutes");
 var AdminRoutes = require("./routes/AdminRoutes");
+var CommentRoute = require("./routes/Comment");
 
 app.get("/", (req, res) => {
   res.send("Goto to the following route -> '/api/question' ");
 });
 
+app.use("/api", CommentRoute);
+
 app.use("/api/questions", QuestionRoute);
+
 app.use("/api/code", CodeRoutes);
 app.use("/admin", AdminRoutes);
 
