@@ -31,15 +31,11 @@ const Landing = () => {
                     </PageLink>
                 </div>
             </div>
-            <div className={classes.video}>
-                <video
-                    className={classes.videoContent}
-                    poster={'/images/hero-home.jpg'}
-                    autoPlay preload="true"
-                    loop muted
-                    src="https://stories.freepik.com/illustration/coding/amico/animate?share=4538"
-                    type='video/webm;codecs="vp8, vorbis"'
-                />
+            <div>
+                
+                    <img className={classes.Content}src="/images/hero-home.jpg"/>
+                    
+                 
             </div>
         </div>
     );
