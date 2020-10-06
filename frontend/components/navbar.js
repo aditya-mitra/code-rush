@@ -75,7 +75,6 @@ export default function ButtonAppBar() {
             }}
             open={open}
             onClose={handleClose}
-
           >
             <MenuItem onClick={handleClose}>My Profile</MenuItem>
             <MenuItem onClick={signOut}>SignOut</MenuItem>
