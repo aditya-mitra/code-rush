@@ -14,7 +14,8 @@ const siteName = "CodeRush 2.0";
 
 const Layout = WrappedComponent => {
     function Hoc(props) {
-        console.log("in layout hoc, the props are", props)
+        if (process.env.NODE_ENV === 'development')
+            console.log("in layout hoc, the props are", props);
         return (
             <>
                 <Head>

@@ -28,15 +28,11 @@ function createData(name, rank, points) {
   return { name, rank, points };
 }
 
-const rows = [
-  createData("User 1", 1, 100),
-  createData("User 2", 2, 60),
-  createData("User 3", 3, 45),
-  createData("User 4", 4, 32),
-  createData("User 5", 5, 10)
-];
-
-export default function BasicTable() {
+export default function LeaderBoard({ leaderboard }) {
+    let rows = [];
+    for (let i = 0; i < leaderboard.length; i++) {
+        rows.push(createData(leaderboard[i].name, i + 1, leaderboard[i].points));
+    }
   const classes = useStyles();
 
   return (
