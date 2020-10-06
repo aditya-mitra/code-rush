@@ -39,10 +39,10 @@
     transition: ease 300ms;
 }
 
-.videoContent {
+.Content {
     width: 100%;
     position: absolute;
     z-index: -1;
-    bottom: -20%;
+    bottom: -18%;
     width: 100%;
 }
