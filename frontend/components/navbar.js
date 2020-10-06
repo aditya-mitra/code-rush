@@ -1,9 +1,11 @@
 import PageLink from 'next/link'
 import {signIn, signOut, useSession } from 'next-auth/client'
-
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, Button, Avatar } from "@material-ui/core"
 import {Person as AvatarFallback} from '@material-ui/icons'
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,6 +22,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
     const classes = useStyles();
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleChange = (event) => {
+        setAuth(event.target.checked);
+      };
+
+      const handleMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+      };
+
+      const handleClose = () => {
+        setAnchorEl(null);
+      };
+
     const [session, loading] = useSession();
     return (
         <div className={classes.root}>
@@ -30,11 +47,39 @@ export default function ButtonAppBar() {
                             CODERUSH
                         </Typography>
                     </PageLink>
+
                     {(session&&!loading)?
                     <>
-                        <Avatar src={session.user.image || AvatarFallback} style={{marginRight:'0.3rem'}}/>
-                        <Typography style={{marginRight:'1rem'}}>{session.user.email}</Typography>
-                        <Button onClick={signOut}>SignOut</Button>
+                    <PageLink href="/dashboard">
+                        <Button style={{marginRight:'0.7rem'}}>practice</Button>
+                    </PageLink>
+
+                    <PageLink href="/leaderboard">
+                        <Button style={{marginRight:'0.7rem'}}>leaderboard</Button>
+                    </PageLink>
+
+                    <Avatar
+                    onClick={handleMenu}
+                     src={session.user.image || AvatarFallback} style={{marginRight:'0.3rem'}}/>
+                     <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={open}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>My Profile</MenuItem>
+            <MenuItem onClick={signOut}>SignOut</MenuItem>
+          </Menu>
+
                     </>
                     :
                     <Button onClick={signIn}>SignIn</Button>}
