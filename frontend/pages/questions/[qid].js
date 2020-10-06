@@ -1,7 +1,8 @@
 import dynamic from 'next/dynamic';
 
-import Layout from '../../components/layout'
-import Editor from '../../components/Editor'
+import Layout from '../../components/layout';
+import Editor from '../../components/Editor';
+import Comment from '../../components/Comments';
 const Question = dynamic(() => import('../../components/Question'), { ssr: false });
 
 import { getAllQuestionPaths, getQuestion } from '../../lib/questions';
@@ -18,10 +19,12 @@ export async function getStaticProps(ctx){
     const { qid } = ctx.params;
 
     const question = await getQuestion(qid);
+    const comments = [...question.comments];
+    delete question['comments'];
     
     return {
-        props: { question, qid },
-        revalidate: 60 * 60,
+        props: { question, qid, comments },
+        revalidate: 30 * 60, // in seconds
     }
 }
 
@@ -29,7 +32,8 @@ function Qid(props) {
     return (
         <div>
             <Question question={props.question}/>
-            <Editor qid={props.qid}/>
+            <Editor qid={props.qid} />
+            <Comment comments={props.comments} />
         </div>
     );
 }

@@ -10,12 +10,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var QuestionRoute = require("./routes/Questions");
 var CodeRoutes = require("./routes/CodeRoutes");
-var Leaderboard = require("./routes/leaderboard");
+var LeaderboardRoutes = require("./routes/Leaderboard");
 var AdminRoutes = require("./routes/AdminRoutes");
 var CommentRoute = require("./routes/Comment");
-var CategoryRoute = require("./routes/category");
+var CategoryRoute = require("./routes/Category");
 
-var findQues = require("./routes/findQuestion");
 
 app.get("/", (req, res) => {
   res.send("Goto to the following route -> '/api/question' ");
@@ -25,11 +24,9 @@ app.use("/api/comments", CommentRoute);
 app.use("/api/questions", QuestionRoute);
 app.use("/api/category", CategoryRoute);
 
-//find Quesrions
-app.use("/category", findQues);
 
 app.use("/api/code", CodeRoutes);
-app.use("/api/leaderboard", Leaderboard);
+app.use("/api/leaderboard", LeaderboardRoutes);
 app.use("/admin", AdminRoutes);
 
 app.use(function (err, req, res, next) {
