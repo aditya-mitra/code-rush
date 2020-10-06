@@ -40,7 +40,6 @@ router.get("/:questionId", function (req, res, next) {
         .populate("comments")
         .lean()
         .exec(function (err, foundQuestion) {
-            console.log(foundQuestion, 'is this');
             if (err) {
                 next(err);
             } else {
