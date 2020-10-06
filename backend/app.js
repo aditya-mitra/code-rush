@@ -3,9 +3,7 @@ var express = require("express");
 var app = express();
 var cors = require("cors");
 var bodyParser = require("body-parser");
-var morgan = require('morgan');
 
-app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,9 +13,8 @@ var CodeRoutes = require("./routes/CodeRoutes");
 var LeaderboardRoutes = require("./routes/Leaderboard");
 var AdminRoutes = require("./routes/AdminRoutes");
 var CommentRoute = require("./routes/Comment");
-var CategoryRoute = require("./routes/category");
+var CategoryRoute = require("./routes/Category");
 
-var findQues = require("./routes/findQuestion");
 
 app.get("/", (req, res) => {
   res.send("Goto to the following route -> '/api/question' ");
@@ -27,8 +24,6 @@ app.use("/api/comments", CommentRoute);
 app.use("/api/questions", QuestionRoute);
 app.use("/api/category", CategoryRoute);
 
-//find Quesrions
-app.use("/category", findQues);
 
 app.use("/api/code", CodeRoutes);
 app.use("/api/leaderboard", LeaderboardRoutes);

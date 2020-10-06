@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let storedQuestions = null; // later uplift this to the store
+let storedQuestions = null;
 
 async function fetchAllQuestions(){
     const data = await axios.get(process.env.BACKEND_URL+"questions")
@@ -45,7 +45,6 @@ export async function getAllQuestions(){
 export async function getQuestion(qid){
     const question = await axios.get(`${process.env.BACKEND_URL}questions/${qid}`)
         .then(response => {
-            console.log(response.data);
             return response.data
         })
         .catch(err=>{
