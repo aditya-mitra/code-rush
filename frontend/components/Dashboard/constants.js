@@ -3,7 +3,7 @@ export default [
     description:
       "Start Programming with C",
     imageUrl:
-        "http://www.faadooengineers.com/online-study/assets/images/icon/BasicofCProgramming.png",
+        "/images/code/C.png",
     link: "/questions?cname=c",
   },
   {
@@ -11,7 +11,7 @@ export default [
       "Start Programming with Java",
 
     imageUrl:
-          "https://th.bing.com/th/id/OIP.KacZ5bUqrOnHMwyYXYUl4gHaEL?pid=Api&rs=1",
+          "/images/code/java.jpg",
     link: "/questions?cname=java",
 
   },
@@ -19,14 +19,14 @@ export default [
     description:
       "Start Programming with C++",
     imageUrl:
-          "https://ih1.redbubble.net/image.416406976.0438/flat,550x550,075,f.jpg",
+            "/images/code/C++.jpg",
       link: "/questions?cname=cpp",
   },
   {
     description:
       "Start Programming With Python",
     imageUrl:
-          "http://genderapi.io/assets/img/3rd-party-logos/python.png",
+          "/images/code/python.png",
       link: "/questions?cname=python",
   },
   {
@@ -34,7 +34,7 @@ export default [
     description:
       "Start Programming with Ruby",
     imageUrl:
-          "https://keyua.org/media/blog_images/ruby-logo_optimized.png",
+            "/images/code/ruby.png",
       link: "/questions?cname=ruby"
   },
   {
@@ -42,7 +42,7 @@ export default [
     description:
       'Start Programming with JavaScript.',
     imageUrl:
-          "http://test.codersera.com/blog/wp-content/uploads/2020/06/JavaScript1-1024x576.jpeg",
-      link: "/questions?cname=java",
+            "/images/code/javascript.jpeg",
+      link: "/questions?cname=javascript",
   }
 ];
