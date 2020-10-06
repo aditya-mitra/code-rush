@@ -1,5 +1,5 @@
 const { Router } = require("express");
-var db = require("../models");
+var db = require("../../models");
 const router = Router();
 
 router.get("/", function (req, res, next){

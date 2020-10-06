@@ -3,14 +3,16 @@ var express = require("express");
 var app = express();
 var cors = require("cors");
 var bodyParser = require("body-parser");
+var morgan = require('morgan');
 
+app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var QuestionRoute = require("./routes/Questions");
 var CodeRoutes = require("./routes/CodeRoutes");
-var Leaderboard = require("./routes/leaderboard");
+var LeaderboardRoutes = require("./routes/Leaderboard");
 var AdminRoutes = require("./routes/AdminRoutes");
 var CommentRoute = require("./routes/Comment");
 var CategoryRoute = require("./routes/category");
@@ -29,7 +31,7 @@ app.use("/api/category", CategoryRoute);
 app.use("/category", findQues);
 
 app.use("/api/code", CodeRoutes);
-app.use("/api/leaderboard", Leaderboard);
+app.use("/api/leaderboard", LeaderboardRoutes);
 app.use("/admin", AdminRoutes);
 
 app.use(function (err, req, res, next) {

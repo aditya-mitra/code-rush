@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var db = require("../models");
+var db = require("../../models");
 
 //GET ROUTE(TO GET ALL QUESTION api's)
 router.get("/", function (req, res, next) {
