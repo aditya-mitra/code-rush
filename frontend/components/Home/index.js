@@ -26,16 +26,16 @@ const Landing = () => {
                     </div>
                 </div>
                 <div className={classes.action}>
-                    <PageLink href='/questions'>
+                    <PageLink href='/dashboard'>
                         <Button variant="contained" color='primary' style={{ borderRadius: 50 }} className={classes.btn}>Let's Start</Button>
                     </PageLink>
                 </div>
             </div>
             <div>
-                
+
                     <img className={classes.Content}src="/images/hero-home.jpg"/>
-                    
-                 
+
+
             </div>
         </div>
     );
