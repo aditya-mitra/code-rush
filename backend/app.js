@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
   res.send("Goto to the following route -> '/api/question' ");
 });
 
-app.use("/api/comments", CommentRoute);
 app.use("/api/questions", QuestionRoute);
+app.use("/api/comments", CommentRoute);
 app.use("/api/category", CategoryRoute);
 
 

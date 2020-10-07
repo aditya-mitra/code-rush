@@ -50,7 +50,7 @@ export default function ButtonAppBar() {
 
                     {(session&&!loading)?
                     <>
-                    <PageLink href="/dashboard">
+                    <PageLink href="/questions">
                         <Button style={{marginRight:'0.7rem'}}>practice</Button>
                     </PageLink>
 

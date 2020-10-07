@@ -1,6 +1,6 @@
 {
   "name": "code-rush",
-  "version": "2.5.3",
+  "version": "3.0.1",
   "private": false,
   "scripts": {
     "dev": "next dev",
