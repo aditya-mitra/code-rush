@@ -30,8 +30,12 @@ app.use("/api/leaderboard", LeaderboardRoutes);
 app.use("/admin", AdminRoutes);
 
 app.use(function (err, req, res, next) {
-  console.error("Hit last route -----> ", err);
-  res.json({ message: err });
+    console.error("Hit last route -----> ", err);
+    const data = err.data;
+    if ('message' in data)
+        res.json({ message: data.message, status: err.status });
+    else // handle later
+        res.json({ message: err });
 });
 
 //SERVER PORT

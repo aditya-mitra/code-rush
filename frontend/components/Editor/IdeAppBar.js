@@ -44,7 +44,7 @@ function IdeAppBar(props) {
         <AppBar position='static'>
             <Toolbar>
                 <Typography variant='h5'>
-                    Code here
+                    EDITOR
                 </Typography>
                 <span className={styles.fillSpace} />
                 <Button aria-controls="theme-menu" aria-haspopup="true" onClick={e => { setThemeAnchor(e.currentTarget); }}>

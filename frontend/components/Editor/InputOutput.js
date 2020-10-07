@@ -34,11 +34,25 @@ export default function InputOuput(props) {
                 input: runInput,
             })
             .then(response => response.data)
-            .catch(error => console.log(error));
+            .catch(error => {
+                /* error with internet connection may only occur here
+                 * all other errors are handled 
+                 * and recieved as data from the backend
+                 */
+                console.log(error);
+                setMessage("Please check your internet connection and try again");
+            });
 
         if (typeof (data) === 'object') {
             setLoading(false);
-            setMessage(data.message);
+            if (data.status === 400) {
+                const show = `Please rechoose your compiler from the dropdown
+                    Error : "${data.message}"`
+                setMessage(show);
+            }
+            else
+                setMessage(data.message);
+
             return;
         }
 
@@ -90,10 +104,10 @@ export default function InputOuput(props) {
                     horizontal: 'right',
                 }}
                 autoHideDuration={4000}
-                message={JSON.stringify(message)}
+                message={message}
                 open={Boolean(message)}
                 onClose={() => setMessage('')}
-                style={{ 'whiteSpace': 'pre-line' }}
+                style={{ whiteSpace: 'pre-line' }}
             />
         </div>
     );
