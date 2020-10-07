@@ -10,12 +10,14 @@ router.get("/", function (req, res, next) {
 });
 
 //POST ROUTE
-router.post("/:questionId/comments", function (req, res, next) {
-    db.Question.findById(req.params.questionId, function (err, questions) {
+router.post("/:questionId", function (req, res, next) {
+    console.log('hit post comment')
+    db.Question.findOne({ Q_id: req.params.questionId }, function (err, questions) {
         if (err) {
             next(err);
         } else {
             db.Comments.create(req.body, function (err1, newComment) {
+                // req.body expects C_author and C_text
                 if (err1) {
                     next(err1);
                 } else {

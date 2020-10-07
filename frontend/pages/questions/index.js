@@ -22,7 +22,6 @@ export async function getServerSideProps(ctx) {
 }
 
 function AllQuestionsPage(props) {
-
     return <AllQuestions questions={props.questions}/>
 }
 

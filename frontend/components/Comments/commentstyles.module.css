@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .comment {
     background: linear-gradient(350deg, #e6f2ff, white);
     font-family: Arial, Helvetica, sans-serif;
@@ -27,7 +28,7 @@
     margin-bottom: 7px;
 }
 
-.container{
+.container {
     margin-bottom: 2rem;
 }
 
@@ -41,3 +42,16 @@
     color: #ffffff;
     margin-bottom: 2rem;
 }
+
+.commentForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+    .commentForm > button {
+        align-self: stretch;
+        margin: 2rem 3rem 3rem 0;
+    }
