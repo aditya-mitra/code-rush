@@ -6,7 +6,7 @@ import {useSession} from 'next-auth/client'
 
 function Me(){
     const [session, loading] = useSession();
-    
+
     useEffect(()=>{
         if(!loading)
             console.log(session)
@@ -18,11 +18,11 @@ function Me(){
     return(
         <div>
         <h1>I am {session.user.name}</h1>
-    
+
         <section><img src={session.user.image} alt='avatar image'/></section>
 
         <article>My email is {session.user.email}</article>
-    </div>    
+    </div>
     );
 }
 
