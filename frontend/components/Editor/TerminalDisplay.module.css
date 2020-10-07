@@ -1,0 +1,110 @@
+.terminalWindow {
+    text-align: left;
+    width: 70rem;
+    height: 20rem;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+}
+
+    .terminalWindow header {
+        background: #e0e8f0;
+        height: 30px;
+        border-radius: 8px 8px 0 0;
+        padding-left: 10px;
+    }
+
+        .terminalWindow header .button {
+            width: 12px;
+            height: 12px;
+            margin: 10px 4px 0 0;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+            .terminalWindow header .button.green {
+                background: #3bb662;
+            }
+
+            .terminalWindow header .button.yellow {
+                background: #e5c30f;
+            }
+
+            .terminalWindow header .button.red {
+                background: #e75448;
+            }
+
+    .terminalWindow section.terminal {
+        color: white;
+        font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+        font-size: 11pt;
+        background: #30353a;
+        padding: 10px;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+        top: 30px;
+        bottom: 0;
+        overflow: auto;
+    }
+
+        .terminalWindow section.terminal .typedCursor {
+            opacity: 1;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.terminalData {
+    display: block;
+}
+
+.terminalWindow .gray {
+    color: gray;
+}
+
+.terminalWindow .green {
+    color: green;
+}

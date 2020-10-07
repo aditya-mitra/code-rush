@@ -22,6 +22,7 @@
   display: flex;
 }
 .info {
+    display:flex;
   margin-top: 70px;
   color: black;
   font-size:21px;
@@ -38,4 +39,8 @@
 .solve{
   margin-top: 16px;
   margin-bottom: 50px;
+}
+.space{
+    flex-direction:row;
+    flex-grow:1;
 }

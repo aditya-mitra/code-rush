@@ -43,6 +43,6 @@ export default [
       'Start Programming with JavaScript.',
     imageUrl:
             "/images/code/javascript.jpeg",
-      link: "/questions?cname=javascript",
+      link: "/questions?cname=js",
   }
 ];

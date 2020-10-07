@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 async function fetchLeaderboard() {
-    const leaderboard = await axios.get(process.env.BACKEND_URL + 'leaderboard')
+    const data = await axios.get(process.env.BACKEND_URL + 'leaderboard')
         .then(response => response.data)
         .catch(error => {
             console.log(error)
         });
 
-    if (leaderboard) return leaderboard.leaderboard;
+    if (data) return data.leaderboard;
     else return null;
 }
 

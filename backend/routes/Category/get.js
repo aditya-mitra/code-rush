@@ -11,7 +11,7 @@ router.get('/:cname', function (req, res, next) {
         .then(questions => {
             questions.forEach(question => {
                 question.category.forEach(c => {
-                    if (c.name === req.params.cname.toString())
+                    if (c.name === req.params.cname)
                         filteredQuestions.push(question);
                 })
             })

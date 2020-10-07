@@ -1,21 +1,24 @@
-import { Container, Card, CardHeader } from "@material-ui/core";
+import { useRouter } from 'next/router';
+
+import { KeyboardArrowLeft } from '@material-ui/icons'
+import { Container, Card, CardHeader, IconButton } from "@material-ui/core";
 import classes from "./index.module.css";
 
 export default function Question(props) {
     const question = props.question;
-        
+    const router = useRouter();
+
     return (
         <div>
             <Card>
+                <IconButton onClick={()=>router.back()}><KeyboardArrowLeft /></IconButton>
                 <CardHeader
                     title={question.Q_title}
                 />
             </Card>
             <div className={classes.top}>
                 <Container>
-                    <h3 className={classes.h}>{question.Q_description[0]}</h3>
-                    <h4 className={classes.j}>{question.Q_description[1]}</h4>
-                    <h4 className={classes.j}>{question.Q_description[2]}</h4>
+                    <div dangerouslySetInnerHTML={{ __html: question.Q_description }} />
                 </Container>
             </div>
         </div>);

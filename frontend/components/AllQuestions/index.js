@@ -2,18 +2,20 @@ import Card from './Card'
 
 function AllQuestions(props) {
 
-  const questions = props.questions.map(question=>{
+    const questions = props.questions.map(question => {
+
+        const categories = question.category.map(c => c.name);
+        return (
+            <Card key={question._id} title={question.Q_title} qid={question.Q_id} categories={categories} comments={question.comments.length} />
+        );
+    })
+
+
     return (
-      <Card key={question._id} title={question.Q_title} sub={question.Q_description[0]} qid={question.Q_id}/>
+        <div>
+            {questions}
+        </div>
     );
-  })
-
-
-  return (
-    <div>
-      {questions}
-    </div>
-  );
 }
 
 export default AllQuestions;

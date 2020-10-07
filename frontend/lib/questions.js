@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
+import marked from 'marked';
 
 let storedQuestions = null;
 
@@ -46,6 +47,10 @@ export async function getQuestion(qid){
     const question = await axios.get(`${process.env.BACKEND_URL}questions/${qid}`)
         .then(response => {
             return response.data
+        })
+        .then(q => {
+            q.Q_description = marked(q.Q_description);
+            return q;
         })
         .catch(err=>{
             console.log("Error while getting that question", qid, err);
