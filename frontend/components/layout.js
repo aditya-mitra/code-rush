@@ -10,7 +10,7 @@ import styles from './layout.module.css';
 import Navbar from './navbar';
 
 
-const siteName = "CodeRush 2.0";
+const siteName = "CodeRush 3.0";
 
 const Layout = WrappedComponent => {
     function Hoc(props) {
