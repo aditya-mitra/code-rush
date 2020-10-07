@@ -5,6 +5,7 @@ var db = require("../../models");
 //GET ROUTE(TO GET ALL QUESTION api's)
 router.get("/", function (req, res, next) {
     db.Question.find()
+        .populate('category')
         .lean()
         .then(function (questions) {
             for (const question of questions) {

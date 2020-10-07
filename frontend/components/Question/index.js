@@ -3,7 +3,7 @@ import classes from "./index.module.css";
 
 export default function Question(props) {
     const question = props.question;
-        
+
     return (
         <div>
             <Card>
@@ -13,7 +13,7 @@ export default function Question(props) {
             </Card>
             <div className={classes.top}>
                 <Container>
-                    <h4 className={classes.j}>{question.Q_description}</h4>
+                    <div dangerouslySetInnerHTML={{ __html: question.Q_description }} />
                 </Container>
             </div>
         </div>);
