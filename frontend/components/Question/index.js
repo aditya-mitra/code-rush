@@ -13,9 +13,7 @@ export default function Question(props) {
             </Card>
             <div className={classes.top}>
                 <Container>
-                    <h3 className={classes.h}>{question.Q_description[0]}</h3>
-                    <h4 className={classes.j}>{question.Q_description[1]}</h4>
-                    <h4 className={classes.j}>{question.Q_description[2]}</h4>
+                    <h4 className={classes.j}>{question.Q_description}</h4>
                 </Container>
             </div>
         </div>);

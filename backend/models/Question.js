@@ -5,11 +5,7 @@ var QuestionSchema = new mongoose.Schema({
   Q_id: Number,
   Q_title: String,
   Q_input: String,
-  Q_description: [
-    {
-      type: String,
-    },
-  ],
+  Q_description: String,
   answer: [
     {
       type: mongoose.Schema.Types.ObjectId,

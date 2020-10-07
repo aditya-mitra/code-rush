@@ -8,7 +8,7 @@ function Card(props) {
         <h2 className={classes.name}>{props.title}</h2>
       </div>
         <div className={classes.bottom}>
-        <p className={classes.info}>{props.sub}</p>
+        <p className={classes.info}>Solve this question</p>
       </div>
       <div className={classes.solve}>
         <PageLink href={"/questions/"+props.qid}>
