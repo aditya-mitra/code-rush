@@ -9,10 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-
         "& > *": {
             margin: theme.spacing(2),
-
         }
     }
 }));
@@ -46,7 +44,6 @@ export default function InputOuput(props) {
 
         setOutput(data);
         setLoading(false);
-
 
     }
 
