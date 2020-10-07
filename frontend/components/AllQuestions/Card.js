@@ -10,7 +10,7 @@ function Card(props) {
         <Chip label={category} color="primary" variant="outlined" key={category} />
     )
 
-    const comments = <Chip color="secondary" avatar={<Avatar>{props.comments}</Avatar>} label="Comments" />
+    const comments = <Chip color="secondary" variant="outlined" avatar={<Avatar>{props.comments}</Avatar>} label="Comments" />
 
     return (
         <div className={classes.card}>
