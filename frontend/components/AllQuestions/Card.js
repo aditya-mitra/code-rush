@@ -1,9 +1,6 @@
 import PageLink from 'next/link'
 
-//import { KeyboardArrowLeft } from '@material-ui/icons'
-//<IconButton><KeyboardArrowLeft /></IconButton>
-import { Button, Chip } from "@material-ui/core";
-
+import { Button, Chip, Avatar } from "@material-ui/core";
 import classes from "./Card.module.css";
 
 
@@ -13,6 +10,8 @@ function Card(props) {
         <Chip label={category} color="primary" variant="outlined" key={category} />
     )
 
+    const comments = <Chip color="secondary" avatar={<Avatar>{props.comments}</Avatar>} label="Comments" />
+
     return (
         <div className={classes.card}>
             <div className={classes.top}>
@@ -20,6 +19,8 @@ function Card(props) {
             </div>
             <div className={classes.info}>
                 {categories}
+                <div className={classes.space} />
+                {comments}
             </div>
             <div className={classes.solve}>
                 <PageLink href={"/questions/" + props.qid}>

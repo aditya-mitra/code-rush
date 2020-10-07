@@ -6,7 +6,7 @@ function AllQuestions(props) {
 
         const categories = question.category.map(c => c.name);
         return (
-            <Card key={question._id} title={question.Q_title} qid={question.Q_id} categories={categories} />
+            <Card key={question._id} title={question.Q_title} qid={question.Q_id} categories={categories} comments={question.comments.length} />
         );
     })
 
