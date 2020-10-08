@@ -76,7 +76,7 @@ export default function ButtonAppBar() {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>My Profile</MenuItem>
+            <PageLink href="/profile"><MenuItem>My Profile</MenuItem></PageLink>
             <MenuItem onClick={signOut}>SignOut</MenuItem>
           </Menu>
 

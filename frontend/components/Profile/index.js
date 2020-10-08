@@ -1,12 +1,19 @@
-import React from "react";
-import styles from "./styles.module.css";
 import PageLink from 'next/link'
-import Button from '@material-ui/core/Button'
-import { useSession } from 'next-auth/client'
+import { useSession, signIn } from 'next-auth/client'
+
+import { LinearProgress, Button } from "@material-ui/core";
+import styles from "./styles.module.css";
 export default function Profile() {
 
 
-  const [session, loading] = useSession();
+    const [session, loading] = useSession();
+    if (loading) {
+        return <LinearProgress />
+    } else if (!loading && !session) {
+        signIn();
+        return <div>redirecting you to signin</div>
+    } else {
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.container}>
@@ -53,6 +60,6 @@ export default function Profile() {
 
       </div>
     </div>
-
   );
+        }
 }

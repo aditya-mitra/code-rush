@@ -14,14 +14,14 @@ export default function Comments(props) {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const comments = props.comments.map(comment =>
+    const initialComments = props.comments.map(comment =>
         <div key={comment._id} className={classes.comment} >
             <div className={classes.name} >{comment.C_author}</div>
             <div className={classes.time} >{comment.C_date} </div>
             <div>{comment.C_text}</div>
         </div>
     );
-    const [commentState, setCommentState] = useState([...comments]);
+    const [comments, setComments] = useState([...initialComments]);
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -32,7 +32,7 @@ export default function Comments(props) {
                 <div className={classes.time} >{comment.C_date} </div>
                 <div>{comment.C_text}</div>
             </div>;
-        setCommentState([...comments, commentEl]);
+        setComments([...comments, commentEl]);
         setInput('');
         setLoading(false);
     }
@@ -45,8 +45,8 @@ export default function Comments(props) {
                 <TextField label='Post a Comment' variant='filled' multiline rows={3} onChange={e => setInput(e.target.value)} value={input} style={{ width: '60rem' }} />
                 <Button onClick={handleSubmit} variant="outlined" disabled={loading} color="secondary">POST</Button>
             </form>
-            {commentState.length > 0 ?
-                commentState
+            {comments.length > 0 ?
+                comments
                 :
                 <div className={classes.comment}>
                     <div className={classes.name}>Be the first one to post a comment!</div>
