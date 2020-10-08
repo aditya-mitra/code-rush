@@ -12,7 +12,6 @@ var AnswerSchema = new mongoose.Schema({
             type: String
         }
     ],
-    _id: Object,
 });
 
 var Answer = mongoose.model("Answer", AnswerSchema);

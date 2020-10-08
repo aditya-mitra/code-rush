@@ -15,14 +15,13 @@ export default function TerminalDisplay({ output, loading }) {
                     {loading ?
                         <span className={classes.typedCursor}>loading the output</span>
                         :
-                        <>$&nbsp;
+                        <>
                             <span className={classes.prompt}>{output ?
-                                <>
-                                    <br />
-                                    <p style={{ whiteSpace: 'pre-line' }}>{output}</p>
-                                </>
+                                <p style={{ whiteSpace: 'pre-line' }}>{output}</p>
                                 :
-                                "press the run button to see the output"}</span><span className={classes.typedCursor}>|</span>
+                                "$ press the run button to see the output"}
+                            </span>
+                            <span className={classes.typedCursor}>|</span>
                         </>
                     }
 
