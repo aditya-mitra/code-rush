@@ -3,9 +3,6 @@ var db = require("../../models");
 const router = Router();
 
 router.get("/", function (req, res, next) {
-  let path = req.params.path;
- if (isValidPath(path))
-   res.sendFile(path);
     db.Solved.find()
     .sort({ points: -1 })
     .limit(10)
