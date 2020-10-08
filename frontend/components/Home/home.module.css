@@ -1,16 +1,16 @@
 .textArea {
     width: 90%;
     margin: 0 auto;
-    padding-top: 10%;
+    padding-top: 6%;
     line-height: 1.2;
 }
 
 .textArea p {
     color: #3f51b5;
-    font-size: 1.125rem;
+    font-size: 1.456rem;
     font-weight: 600;
     font-family: Karla, helvetica, arial, sans-serif;
-    letter-spacing: 0.16rem;
+    letter-spacing: 0.10rem;
 }
 
 .textArea h1 {
@@ -45,4 +45,38 @@
     z-index: -1;
     bottom: -18%;
     width: 100%;
+}
+/* For Blue back box*/
+.outer{
+    width: 260px;
+    background: linear-gradient(350deg, #3f51b5, #99ccff);
+    position: relative;
+    height: 100px;
+
+    top: 40px;  /* can change according to the page requirements. */
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    color: rgb(221, 224, 247);
+    border-radius: 5px;
+    box-shadow: 1px 9px 9px 7px rgba(0, 0, 0, 0.3);
+}
+
+/* For black box */
+.disp{
+    width: 290px;     /* .disp(width) = .outer(width) + 30 */
+    background: linear-gradient(350deg, #3f51b5 ,black);
+    position: absolute;
+    height: 60px;      /*calculated according to the height in .outer class. .disp(height) = .outer(height)-40 */
+    top: 20px;
+    bottom: 20px;
+    left: -15px;    /* length of the black box being shifted slightly to left so that it comes in between. */
+
+}
+
+/* For text inside black box */
+.text{
+    top: 12.5px;        /* This value is set according to the font-size set in .outer class. If you change font-size, this might have to be changed too.*/
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
