@@ -1,6 +1,6 @@
 {
   "name": "code-rush",
-  "version": "3.0.1",
+  "version": "3.2.1",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -17,7 +17,9 @@
     "axios": "^0.20.0",
     "marked": "^1.2.0",
     "mongodb": "^3.6.2",
-    "next": "9.5.4",
+
+    "next": "^9.5.4",
+
     "next-auth": "^3.1.0",
     "nprogress": "^0.2.0",
     "react": "16.13.1",

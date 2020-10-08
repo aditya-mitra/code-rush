@@ -10,7 +10,7 @@ export async function getStaticProps() {
     return {
         props: {
             leaderboard,
-            revalidate: 1 * 60,
+            revalidate: 60,
         }
     }
 }
