@@ -1,8 +1,8 @@
 import Layout from '../components/layout'
 import Notfound from '../components/Notfound'
 
-function notfound () {
+function NotFoundPage () {
     return <Notfound/>
 }
 
-export default Layout(notfound);
+export default Layout(NotFoundPage);
