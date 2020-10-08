@@ -1,8 +1,8 @@
 import PageLink from 'next/link'
-import {signIn, signOut, useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/client'
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Button, Avatar } from "@material-ui/core"
-import {Person as AvatarFallback} from '@material-ui/icons'
+import { AppBar, Toolbar, Typography, Button, Avatar, CircularProgress } from "@material-ui/core"
+import { Person as AvatarFallback } from '@material-ui/icons'
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
@@ -27,15 +27,15 @@ export default function ButtonAppBar() {
     const open = Boolean(anchorEl);
     const handleChange = (event) => {
         setAuth(event.target.checked);
-      };
+    };
 
-      const handleMenu = (event) => {
+    const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
-      };
+    };
 
-      const handleClose = () => {
+    const handleClose = () => {
         setAnchorEl(null);
-      };
+    };
 
     const [session, loading] = useSession();
     return (
@@ -47,42 +47,48 @@ export default function ButtonAppBar() {
                             CODERUSH
                         </Typography>
                     </PageLink>
+                    {loading ?
+                        <>
+                            <CircularProgress color="secondary" />
+                        </>
+                        :
+                        (session ?
+                            <>
+                                <PageLink href="/questions">
+                                    <Button style={{ marginRight: '0.7rem' }}>practice</Button>
+                                </PageLink>
 
-                    {(session&&!loading)?
-                    <>
-                    <PageLink href="/questions">
-                        <Button style={{marginRight:'0.7rem'}}>practice</Button>
-                    </PageLink>
+                                <PageLink href="/leaderboard">
+                                    <Button style={{ marginRight: '0.7rem' }}>leaderboard</Button>
+                                </PageLink>
 
-                    <PageLink href="/leaderboard">
-                        <Button style={{marginRight:'0.7rem'}}>leaderboard</Button>
-                    </PageLink>
+                                <Avatar
+                                    onClick={handleMenu}
+                                    src={session.user.image || AvatarFallback} style={{ marginRight: '0.3rem' }} />
+                                <Menu
+                                    id="menu-appbar"
+                                    anchorEl={anchorEl}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    open={open}
+                                    onClose={handleClose}
+                                >
+                                    <PageLink href="/profile"><MenuItem>My Profile</MenuItem></PageLink>
+                                    <MenuItem onClick={signOut}>SignOut</MenuItem>
+                                </Menu>
 
-                    <Avatar
-                    onClick={handleMenu}
-                     src={session.user.image || AvatarFallback} style={{marginRight:'0.3rem'}}/>
-                     <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={open}
-            onClose={handleClose}
-          >
-            <PageLink href="/profile"><MenuItem>My Profile</MenuItem></PageLink>
-            <MenuItem onClick={signOut}>SignOut</MenuItem>
-          </Menu>
-
-                    </>
-                    :
-                    <Button onClick={signIn}>SignIn</Button>}
+                            </>
+                            :
+                            <Button onClick={signIn}>SignIn</Button>
+                        )
+                    }
                 </Toolbar>
             </AppBar>
         </div>

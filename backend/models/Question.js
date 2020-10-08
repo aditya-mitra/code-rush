@@ -1,29 +1,21 @@
 var mongoose = require("mongoose");
-var c;
 
 var QuestionSchema = new mongoose.Schema({
-  Q_id: Number,
-  Q_title: String,
-  Q_input: String,
-  Q_description: String,
-  answer: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Answer",
-    },
-  ],
-  comments: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment",
-    },
-  ],
-  category: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-    },
-  ],
+    Q_id: Number,
+    Q_title: String,
+    Q_description: String,
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment",
+        },
+    ],
+    category: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Category",
+        },
+    ],
 });
 
 var Question = mongoose.model("Question", QuestionSchema);
