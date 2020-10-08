@@ -1,6 +1,6 @@
 {
   "name": "code-rush-backend",
-  "version": "2.3.5",
+  "version": "3.0.1",
   "description": "backend for codeplatform2",
   "main": "app.js",
   "scripts": {

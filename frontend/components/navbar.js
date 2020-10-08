@@ -50,7 +50,7 @@ export default function ButtonAppBar() {
 
                     {(session&&!loading)?
                     <>
-                    <PageLink href="/dashboard">
+                    <PageLink href="/questions">
                         <Button style={{marginRight:'0.7rem'}}>practice</Button>
                     </PageLink>
 
@@ -76,7 +76,7 @@ export default function ButtonAppBar() {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>My Profile</MenuItem>
+            <PageLink href="/profile"><MenuItem>My Profile</MenuItem></PageLink>
             <MenuItem onClick={signOut}>SignOut</MenuItem>
           </Menu>
 

@@ -2,8 +2,7 @@ const { Router } = require("express");
 var db = require("../../models");
 const router = Router();
 
-router.get("/", function (req, res, next){
-
+router.get("/", function (req, res, next) {
     db.Solved.find()
     .sort({ points: -1 })
     .limit(10)
@@ -16,7 +15,7 @@ router.get("/", function (req, res, next){
         solutions.forEach(function(lead){
             var obj = new Object();    
             obj.points = lead.points;     //storing points in object
-            obj.name = lead.userid.name;   //storing emails in object. 
+            obj.name = lead.userid.name;   //storing names in object. 
             leads.push(obj);    //pushing the object into the array.
            
         });
