@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 
 import classes from "./home.module.css";
 
-const Landing = () => {
+const Landing = ({ usercount }) => {
     return (
         <div className={classes.bg}>
             <div className={classes.textArea}>
@@ -31,14 +31,11 @@ const Landing = () => {
                     </PageLink>
                 </div>
                 <div className={classes.outer}>
-      <div className={classes.disp}><span className={classes.text}> User Count : 10</span></div>
+                    <div className={classes.disp}><span className={classes.text}> Users Registered : {usercount}</span></div>
   </div>
             </div>
             <div>
-
-                    <img className={classes.Content}src="/images/hero-home.jpg"/>
-
-
+                <img className={classes.Content} src="/images/hero-home.jpg" />
             </div>
         </div>
     );

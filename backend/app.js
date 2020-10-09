@@ -14,6 +14,7 @@ var LeaderboardRoutes = require("./routes/Leaderboard");
 var AdminRoutes = require("./routes/AdminRoutes");
 var CommentRoute = require("./routes/Comment");
 var CategoryRoute = require("./routes/Category");
+var UserRoutes = require("./routes/User");
 
 
 app.get("/", (req, res) => {
@@ -24,9 +25,9 @@ app.use("/api/questions", QuestionRoute);
 app.use("/api/comments", CommentRoute);
 app.use("/api/category", CategoryRoute);
 
-
 app.use("/api/code", CodeRoutes);
 app.use("/api/leaderboard", LeaderboardRoutes);
+app.use("/api/user", UserRoutes);
 app.use("/admin", AdminRoutes);
 
 app.use(function (err, req, res, next) {
