@@ -49,6 +49,7 @@ export async function getQuestion(qid){
             return response.data
         })
         .then(q => {
+            q.Q_description = q.Q_description.replace(/<br>/g, " <br/> ");
             q.Q_description = marked(q.Q_description);
             return q;
         })

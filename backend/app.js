@@ -25,7 +25,6 @@ app.use("/api/questions", QuestionRoute);
 app.use("/api/comments", CommentRoute);
 app.use("/api/category", CategoryRoute);
 
-
 app.use("/api/code", CodeRoutes);
 app.use("/api/leaderboard", LeaderboardRoutes);
 app.use("/api/user", UserRoutes);

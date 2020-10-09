@@ -23,7 +23,9 @@ export async function getStaticProps(ctx){
     delete question['comments'];
     
     return {
-        props: { question, qid, comments },
+        props: { 
+            question, qid, comments 
+        },
         revalidate: 30 * 60, // in seconds
     }
 }

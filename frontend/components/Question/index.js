@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { KeyboardArrowLeft } from '@material-ui/icons'
 import { Container, Card, CardHeader, IconButton } from "@material-ui/core";
 import classes from "./index.module.css";
+import markdownClasses from "./markdown.module.css";
 
 export default function Question(props) {
     const question = props.question;
@@ -17,9 +18,7 @@ export default function Question(props) {
                 />
             </Card>
             <div className={classes.top}>
-                <Container>
-                    <div dangerouslySetInnerHTML={{ __html: question.Q_description }} />
-                </Container>
+                <div className={markdownClasses.markdown} dangerouslySetInnerHTML={{ __html: question.Q_description }} />
             </div>
         </div>);
 }
