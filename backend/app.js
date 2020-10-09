@@ -14,7 +14,7 @@ var LeaderboardRoutes = require("./routes/Leaderboard");
 var AdminRoutes = require("./routes/AdminRoutes");
 var CommentRoute = require("./routes/Comment");
 var CategoryRoute = require("./routes/Category");
-var UserRoutes = require('./routes/User');
+var UserRoutes = require("./routes/User");
 
 
 app.get("/", (req, res) => {

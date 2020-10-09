@@ -2,9 +2,9 @@ const { Router } = require('express');
 const router = Router();
 const  db = require('../../models');
 
-router.get('/count', function (req, res, next) {
+router.get('/', function (req, res, next) {
 
-    db.User.count({})
+    db.User.countDocuments({})
         .then(count => {
             res.json({ count });
         })

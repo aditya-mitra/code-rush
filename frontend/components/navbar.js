@@ -62,10 +62,12 @@ export default function ButtonAppBar() {
                                     <Button style={{ marginRight: '0.7rem' }}>leaderboard</Button>
                                 </PageLink>
 
-                                <Avatar
-                                    onClick={handleMenu}
-                                    src={session.user.image || AvatarFallback} style={{ marginRight: '0.3rem' }}
+                                <span style={{ cursor: 'pointer' }}>
+                                    <Avatar
+                                        onClick={handleMenu}
+                                        src={session.user.image || AvatarFallback} style=   {{ marginRight: '0.3rem' }}
                                     />
+                                </span>
                                 <Menu
                                     id="menu-appbar"
                                     anchorEl={anchorEl}
