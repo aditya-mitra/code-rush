@@ -81,7 +81,7 @@ router.post("/", async function (req, res, next) {
 
     }
 
-    /* if user has reached here,
+    /* if reached here,
      * implies that all testcases are passes and we are ready to give point
      */
 

@@ -64,7 +64,8 @@ export default function ButtonAppBar() {
 
                                 <Avatar
                                     onClick={handleMenu}
-                                    src={session.user.image || AvatarFallback} style={{ marginRight: '0.3rem' }} />
+                                    src={session.user.image || AvatarFallback} style={{ marginRight: '0.3rem' }}
+                                    />
                                 <Menu
                                     id="menu-appbar"
                                     anchorEl={anchorEl}
