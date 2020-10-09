@@ -30,6 +30,9 @@ const Landing = () => {
                         <Button variant="contained" color='primary' style={{ borderRadius: 50 }} className={classes.btn}>Let's Start</Button>
                     </PageLink>
                 </div>
+                <div className={classes.outer}>
+      <div className={classes.disp}><span className={classes.text}> User Count : 10</span></div>
+  </div>
             </div>
             <div>
 
