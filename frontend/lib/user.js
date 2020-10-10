@@ -1,7 +1,7 @@
-import axios from 'axios';
+import instance from './instance';
 
 async function fetchUserCount() {
-    const count = await axios.get(process.env.BACKEND_URL + "user/count")
+    const count = await instance.get("user/count")
         .then(response => response.data)
         .then(data => data.count)
         .catch(err => console.error('error while getting user count'));
@@ -9,7 +9,7 @@ async function fetchUserCount() {
 }
 
 async function fetchUserData(email) {
-    const data = await axios.get(process.env.BACKEND_URL + `user/info?email=${email}`)
+    const data = await instance.get(`user/info?email=${email}`)
         .then(response => response.data)
         .catch(error => console.log('error while getting user data'));
     return data;

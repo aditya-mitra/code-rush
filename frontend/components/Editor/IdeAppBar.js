@@ -30,7 +30,7 @@ function IdeAppBar(props) {
     const [langName, setLangName] = useState(mode);
 
     const chooseLang = l => {
-            props.handleModeChange(l);
+        props.handleModeChange(l);
         setLangName(l);
         setLangAnchor(null);
     }

@@ -8,10 +8,6 @@ router.get("/", function (req, res, next) {
         .populate('category')
         .lean()
         .then(function (questions) {
-            for (const question of questions) {
-                delete question["answer"];
-                delete question["Q_input"];
-            }
             res.json(questions);
         })
         .catch(function (err) {
@@ -44,30 +40,9 @@ router.get("/:questionId", function (req, res, next) {
             if (err) {
                 next(err);
             } else {
-                delete foundQuestion["answer"];
-                delete foundQuestion["Q_input"];
                 res.json(foundQuestion);
             }
         });
-});
-
-//TO POST A ANSWER
-router.post("/:questionId/answer", function (req, res, next) {
-    db.Question.findById(req.params.questionId, function (err, question) {
-        if (err) {
-            next(err);
-        } else {
-            db.Answer.create(req.body, function (err1, newAnswer, next) {
-                if (err1) {
-                    next(err1);
-                } else {
-                    res.json(newAnswer);
-                    question.answer.push(newAnswer._id);
-                    question.save();
-                }
-            });
-        }
-    });
 });
 
 module.exports = router;

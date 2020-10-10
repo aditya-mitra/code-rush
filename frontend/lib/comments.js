@@ -1,7 +1,7 @@
-import axios from 'axios';
+import instance from './instance';
 
 async function postComment(name, text, qid) {
-    const data = await axios.post(process.env.BACKEND_URL + `comments/${qid}`,
+    const data = await instance.post(`comments/${qid}`,
         {
             C_author: name,
             C_text: text

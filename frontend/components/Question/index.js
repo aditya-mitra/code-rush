@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { KeyboardArrowLeft } from '@material-ui/icons'
-import { Container, Card, CardHeader, IconButton } from "@material-ui/core";
+import { Card, CardHeader, IconButton } from "@material-ui/core";
 import classes from "./index.module.css";
 import markdownClasses from "./markdown.module.css";
 

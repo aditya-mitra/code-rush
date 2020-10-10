@@ -1,7 +1,7 @@
-import axios from 'axios';
+import instance from './instance';
 
 async function fetchLeaderboard() {
-    const data = await axios.get(process.env.BACKEND_URL + 'leaderboard')
+    const data = await instance.get('leaderboard')
         .then(response => response.data)
         .catch(error => {
             console.log(error)

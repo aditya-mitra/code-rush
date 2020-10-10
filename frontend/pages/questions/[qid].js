@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/layout';
 import Editor from '../../components/Editor';
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
     const paths = await getAllQuestionPaths();
     return {
         paths,
-        fallback: false
+        fallback: true
     };
 }
 
@@ -26,18 +27,27 @@ export async function getStaticProps(ctx){
         props: { 
             question, qid, comments 
         },
-        revalidate: 30 * 60, // in seconds
+        revalidate: 1, // in seconds
     }
 }
 
 function Qid(props) {
-    return (
-        <div>
-            <Question question={props.question}/>
-            <Editor qid={props.qid} />
-            <Comment comments={props.comments} />
-        </div>
-    );
+    const router = useRouter();
+
+    if (router.isFallback) { // for page not generated during build, wait for getStaticProps to finish
+        return <div>Fetching a fresh new question </div>;
+    } else if (props.question && props.qid && props.comments) { // page has the static props
+        return (
+            <div>
+                <Question question={props.question} />
+                <Editor qid={props.qid} />
+                <Comment comments={props.comments} />
+            </div>
+        );
+    } else {
+        router.push('/404');
+        return null;
+    }
 }
 
 

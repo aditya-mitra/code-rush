@@ -1,7 +1,7 @@
-import axios from 'axios';
+import instance from './instance';
 
 async function fetchCategories() {
-    const data = axios.get(process.env.BACKEND_URL + "category")
+    const data = instance.get("category")
         .then(response => response.data)
         .catch(e => { console.log("Error whilte fetching all questions") });
     if (!data) return null;
@@ -27,7 +27,7 @@ export async function getAllCategoriesPaths() {
 }
 
 export async function getCategory(cname) {
-    const category = await axios.get(process.env.BACKEND_URL + "category/get/" + cname)
+    const category = await instance.get("category/get/" + cname)
         .then(response => response.data)
         .catch(error => console.log(error));
 

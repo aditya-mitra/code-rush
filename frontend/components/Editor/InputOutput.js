@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from 'axios';
+import { runCode, submitCode } from '../../lib/code';
 
 import TerminalDisplay from './TerminalDisplay';
 
@@ -26,23 +26,7 @@ export default function InputOuput(props) {
     const handleRunCode = async () => {
 
         setLoading(true);
-        console.info('submitting', props.mode, props.code, runInput);
-        const data = await axios.post(process.env.BACKEND_URL + "code/run",
-            {
-                source: props.code,
-                compiler: props.mode,
-                useremail: props.user.email,
-                input: runInput,
-            })
-            .then(response => response.data)
-            .catch(error => {
-                /* error with internet connection may only occur here
-                 * all other errors are handled 
-                 * and recieved as data from the backend
-                 */
-                console.log(error);
-                setMessage("Please check your internet connection and try again");
-            });
+        const data = await runCode(props.code, props.mode, props.user.email, runInput);
 
         if (typeof (data) === 'object') {
             setLoading(false);
@@ -50,9 +34,9 @@ export default function InputOuput(props) {
                 const show = `Please rechoose your compiler from the dropdown
                     Error : "${data.message}"`
                 setMessage(show);
-            }
-            else
+            } else {
                 setMessage(data.message);
+            }
 
             return;
         }
@@ -64,15 +48,7 @@ export default function InputOuput(props) {
 
     const handleSubmitCode = async () => {
         setLoading(true);
-        const data = await axios.post(process.env.BACKEND_URL + "code/submit",
-            {
-                source: props.code,
-                compiler: props.mode,
-                useremail: props.user.email,
-                qid: props.qid
-            })
-            .then(response => response.data)
-            .catch(error => console.log(error));
+        const data = await submitCode(props.code, props.mode, props.user.email, props.qid);
 
         if (typeof (data) === 'object') {
             setLoading(false);

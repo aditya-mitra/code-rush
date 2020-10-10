@@ -24,7 +24,7 @@ export default function Editor(props) {
     const handleThemeChange = (theme) => setTheme(theme);
 
     const [mode, setMode] = useState();
-    const handleModeChange = mode => setMode('cpp');
+    const handleModeChange = mode => setMode(mode);
 
     const [code, setCode] = useState('');
 

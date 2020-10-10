@@ -75,7 +75,7 @@ router.post("/", async function (req, res, next) {
         if (output.trim() == answer.A_output[i].trim()) {
             continue; // continue to check the next input's output
         } else {
-            const message = `Failed after test case no ${i+1}`;
+            const message = `Failed after test case ${i+1} of ${testCases} test cases`;
             return res.json({ message: message });
         }
 

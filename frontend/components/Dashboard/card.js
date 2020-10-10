@@ -5,7 +5,6 @@ const CCard = props => {
     const { link, description, imageUrl } = props;
     return (
         <Card style={{ marginTop: "50px", marginBottom: "30px" }}>
-
             <CardMedia style={{ height: "150px", marginTop: "50px" }} image={imageUrl} />
             <CardContent>
                 <Typography variant="body2" component="p">
@@ -14,7 +13,7 @@ const CCard = props => {
             </CardContent>
             <CardActions>
                 <Button size="small" color="primary">
-                    <PageLink href={link}> Start</PageLink>
+                    <PageLink href={link}>Start</PageLink>
                 </Button>
             </CardActions>
         </Card>
