@@ -36,7 +36,7 @@ function Qid(props) {
 
     if (router.isFallback) { // for page not generated during build, wait for getStaticProps to finish
         return <div>Fetching a fresh new question </div>;
-    } else { // page has the static props
+    } else if (props.question && props.qid && props.comments) { // page has the static props
         return (
             <div>
                 <Question question={props.question} />
@@ -44,6 +44,9 @@ function Qid(props) {
                 <Comment comments={props.comments} />
             </div>
         );
+    } else {
+        router.push('/404');
+        return null;
     }
 }
 

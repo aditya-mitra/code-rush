@@ -7,8 +7,8 @@ import classes from "./Card.module.css";
 function Card(props) {
 
     const categories = props.categories.map(category =>
-        <PageLink href={`/questions?cname=${category}`}>
-            <Chip label={category} color="primary" variant="outlined" key={category} style={{ marginLeft: '0.5rem' }} />
+        <PageLink href={`/questions?cname=${category}`} key={category}>
+            <Chip label={category} color="primary" variant="outlined" style={{ marginLeft: '0.5rem' }} />
         </PageLink>
     )
 

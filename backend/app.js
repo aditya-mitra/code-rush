@@ -16,10 +16,20 @@ var CommentRoute = require("./routes/Comment");
 var CategoryRoute = require("./routes/Category");
 var UserRoutes = require("./routes/User");
 
+app.use("/admin", AdminRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("Goto to the following route -> '/api/question' ");
 });
+
+app.use("/api", function (req, res, next) {
+    if (req.headers.authorization === process.env.AUTHORIZATION_TOKEN) {
+        next();
+    } else {
+        res.status(403).json({ "message": "unauthorized" });
+    }
+})
 
 app.use("/api/questions", QuestionRoute);
 app.use("/api/comments", CommentRoute);
@@ -28,7 +38,6 @@ app.use("/api/category", CategoryRoute);
 app.use("/api/code", CodeRoutes);
 app.use("/api/leaderboard", LeaderboardRoutes);
 app.use("/api/user", UserRoutes);
-app.use("/admin", AdminRoutes);
 
 app.use(function (err, req, res, next) {
     console.error("Hit last route -----> ", err);

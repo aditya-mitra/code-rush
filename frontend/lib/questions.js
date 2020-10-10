@@ -1,17 +1,20 @@
-import axios from 'axios';
+import instance from './instance';
 import marked from 'marked';
+
 
 let storedQuestions = null;
 
 async function fetchAllQuestions(){
-    const data = await axios.get(process.env.BACKEND_URL+"questions")
+    const data = await instance.get("questions")
                             .then(response=>response.data)
                             .catch(e=>{
                                 console.log("Error while fetching questions",e)
+
                             })
     if(!data) return null;
     storedQuestions = data;
     return data;
+
 }
 
 export async function getAllQuestionPaths(){
@@ -44,7 +47,7 @@ export async function getAllQuestions(){
 }
 
 export async function getQuestion(qid){
-    const question = await axios.get(`${process.env.BACKEND_URL}questions/${qid}`)
+    const question = await instance.get(`questions/${qid}`)
         .then(response => {
             return response.data
         })

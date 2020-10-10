@@ -8,7 +8,6 @@ const runRoute = require("./run");
 router.use((req, res, next) => {
 
     const useremail = req.body.useremail;
-    console.log("the authorization headers are", req.headers.authorization, "and the headers are", req.headers, "these are");
     db.User.findOne({ email: useremail })
         .then(user => {
             if (!user) {
