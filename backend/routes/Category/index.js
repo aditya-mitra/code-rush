@@ -12,23 +12,23 @@ router.get("/", function (req, res, next) {
         .catch((err) => next(err));
 });
 
-//POST ROUTE
-router.post("/:questionId/category", function (req, res, next) {
-    db.Question.findById(req.params.questionId, function (err, questions) {
-        if (err) {
-            next(err);
-        } else {
-            db.Category.create(req.body, function (err1, newCategory) {
-                if (err1) {
-                    next(err1);
-                } else {
-                    res.json(newCategory);
-                    questions.category.push(newCategory._id);
-                    questions.save();
-                }
-            });
-        }
-    });
-});
+// //POST ROUTE
+// router.post("/:questionId/category", function (req, res, next) {
+//     db.Question.findById(req.params.questionId, function (err, questions) {
+//         if (err) {
+//             next(err);
+//         } else {
+//             db.Category.create(req.body, function (err1, newCategory) {
+//                 if (err1) {
+//                     next(err1);
+//                 } else {
+//                     res.json(newCategory);
+//                     questions.category.push(newCategory._id);
+//                     questions.save();
+//                 }
+//             });
+//         }
+//     });
+// });
 
 module.exports = router;
