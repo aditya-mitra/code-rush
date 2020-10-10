@@ -26,7 +26,6 @@ export default function InputOuput(props) {
     const handleRunCode = async () => {
 
         setLoading(true);
-        console.info('submitting', props.mode, props.code, runInput);
         const data = await axios.post(process.env.BACKEND_URL + "code/run",
             {
                 source: props.code,
@@ -40,7 +39,6 @@ export default function InputOuput(props) {
                  * all other errors are handled 
                  * and recieved as data from the backend
                  */
-                console.log(error);
                 setMessage("Please check your internet connection and try again");
             });
 
