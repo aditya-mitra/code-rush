@@ -10,7 +10,7 @@ import styles from './layout.module.css';
 import Navbar from './navbar';
 
 
-const siteName = "CodeRush 3.0";
+const siteName = "CodeRush";
 
 const Layout = WrappedComponent => {
     function Hoc(props) {
@@ -21,12 +21,13 @@ const Layout = WrappedComponent => {
                 <Head>
                     <link rel='icon' href='/favicon.png' />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-                    <meta name="og:title" content={siteName} />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta
-                        name="description"
-                        content="Code Rush The Place To Code!"
-                    />
+
+                    <meta property="og:title" content="CodeRush - Your place to code" />
+                    <meta property="og:site_name" content={siteName} />
+                    <meta property="og:url" content="https://code-rush.vercel.app/" />
+                    <meta property="og:description" content="CodeRush is a competitive coding platform" />
+                    <meta property="og:image" content="https://qph.fs.quoracdn.net/main-qimg-011de5342604fe4790a86357beec5ee5" />
+
                     <meta
                         name="viewport"
                         content="minimum-scale=1, initial-scale=1, width=device-width"
