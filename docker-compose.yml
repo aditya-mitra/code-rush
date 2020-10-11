@@ -1,0 +1,21 @@
+version: "3"
+
+services: 
+    
+    backend:
+        build: ./backend
+        environment: 
+            - CRYPTO_SECRET=ThisIsSecret
+            - PORT=9000
+        ports: 
+            - 9000:9000
+        restart: always
+    
+    frontend:
+        build: ./frontend
+        environment: 
+            - CRYPTO_SECRET=ThisIsSecret
+            - PORT=3000
+        ports: 
+            - 3000:3000
+        restart: always
