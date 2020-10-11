@@ -81,4 +81,4 @@
 
 <br/> 
 
-### Do Visit Our Page And Experience The Amazing Platform ❤️
+### Do Visit Our Site And Experience The Amazing Platform ❤️
