@@ -96,7 +96,6 @@ We make it easier to add, edit, remove and delete questions, answers, or comment
 
  ## Members
 
-- [Saswata Mukherjee](https://github.com/saswatamcode) (*Mentor*)
 - [Ananya Singh](https://github.com/ananyasingh87)
 - [Kaushik Mandal](https://github.com/Kaushik-FSD)
 - [Yashvi Mahapatra](https://github.com/yashvi2001)
