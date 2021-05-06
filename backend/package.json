@@ -23,7 +23,7 @@
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "mongoose": "^5.10.2",
-    "sanitize-html": "^2.1.0"
+    "sanitize-html": "^2.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
